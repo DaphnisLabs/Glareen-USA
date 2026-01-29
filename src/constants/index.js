@@ -14,6 +14,7 @@ export const productDataMap = {
       price: 189,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/37_20240918_235524_0036.png?v=1744626943",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/38_20240918_235524_0037.png?v=1744626943",
@@ -33,6 +34,7 @@ export const productDataMap = {
       price: 189,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/21_20240918_235523_0020.png?v=1744626952",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/19_20240918_235523_0018.png?v=1744626952",
@@ -52,6 +54,7 @@ export const productDataMap = {
       price: 189,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/14_20240918_235523_0013.png?v=1744626979",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/12_20240918_235522_0011.png?v=1744626979",
@@ -71,6 +74,7 @@ export const productDataMap = {
       price: 189,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_20240918_235522_0006.png?v=1744626896",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_20240918_235522_0003.png?v=1744626896",
@@ -90,6 +94,7 @@ export const productDataMap = {
       price: 189,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/27_20240918_235524_0026.png?v=1728246853",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/25_20240918_235523_0024.png?v=1728246853",
@@ -105,6 +110,7 @@ export const productDataMap = {
       handle: "glareen-blossom-breeze-bamboo-less-dhoop-sticks",
       price: 189,
       compareAtPrice: 299,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/29_20240918_235524_0028.png?v=1744626963",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/31_20240918_235524_0030.png?v=1744626963",
@@ -123,6 +129,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/51_20250116_175100_0011.png?v=1744626850",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/57_20250115_160638_0041.png?v=1744626850",
@@ -140,6 +147,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/48_20250116_175100_0008.png?v=1744626844",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/amzn_2500x2500px__20250115_161715_0000.png?v=1744626844",
@@ -158,6 +166,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/49_20250116_175100_0009.png?v=1744626860",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/55_20250115_160638_0039.png?v=1744626860",
@@ -176,6 +185,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/50_20250116_175100_0010.png?v=1744626871",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/56_20250115_160638_0040.png?v=1744626871",
@@ -194,6 +204,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/47_20250116_175100_0007.png?v=1744626882",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/53_20250115_160638_0037.png?v=1744626882",
@@ -212,6 +223,7 @@ export const productDataMap = {
       price: 186,
       compareAtPrice: 299,
       available: true,
+      amazonUrl: "https://www.amazon.com/Natural-Sandal-Harmony-Sandalwood-Tranquility/dp/B0D3XTBRYJ/ref=sr_1_7?sr=8-7",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/46_20250116_175100_0006.png?v=1744626906",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/52_20250115_160638_0036.png?v=1744626906",
@@ -232,6 +244,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/Exotic-Jasmine-Dreams-Enchanting-Agarbatti/dp/B0D3XVP6NT/ref=sr_1_2?sr=8-2" ,
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_40ba6200-ab2a-4a53-9cf3-888da68002dd.jpg?v=1744453154",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_2376a293-0d32-4e40-8657-2939ed01e8de.jpg?v=1744453154",
@@ -251,6 +264,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_3a4c7af0-6dda-4189-a8f8-4b54fd779c21.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_926019cc-a84c-4d97-88c8-6b097aeb84f9.jpg?v=1735154262",
@@ -270,6 +284,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F/ref=sr_1_1?sr=8-1",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_05b824f2-1078-4270-b4fa-220ba0ea2cf8.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_457b87f3-d84d-408f-ac42-e7130f7639f1.jpg?v=1735154041",
@@ -290,6 +305,7 @@ export const productDataMap = {
       price: 899,
       compareAtPrice: 1194,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_9deed63a-14af-4bb1-ab86-959f516c611b.jpg?v=1728245741",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_a4034988-be2a-4149-902b-4544bbf715b9.jpg?v=1728245741",
@@ -308,6 +324,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/Mystique-Rose-Handcrafted-Sustainable-Aromatherapy/dp/B0D3XDXY4B/ref=sr_1_3?sr=8-3" ,
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6.jpg?v=1735154105",
@@ -327,6 +344,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_b0b60a5e-1cbb-4114-add5-007c9ba0b68e.jpg?v=1735154118",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_c6af6957-8880-4115-aa35-6d4bb5904229.jpg?v=1735154118",
@@ -348,6 +366,7 @@ export const productDataMap = {
       price: 499,
       compareAtPrice: 597,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Jasmie-rose-and-sandal.jpg?v=1728161597",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_0222d9a0-f818-4d8f-9566-737066c17dfd.jpg?v=1728161627",
@@ -365,6 +384,7 @@ export const productDataMap = {
       price: 196,
       compareAtPrice: 199,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_5c5025a1-ac3b-4ee1-9507-b9fcdd0a433a.jpg?v=1744453169",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_ecaad99f-3964-4935-928b-c48b037f5b02.jpg?v=1744453169",
@@ -383,6 +403,7 @@ export const productDataMap = {
       price: 499,
       compareAtPrice: 597,
       available: true,
+      amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/oud-tuberose-and-lavender.jpg?v=1728162034",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_16acaf06-7c37-44f6-81ae-b98a437ff96b.jpg?v=1728162052",
@@ -404,6 +425,7 @@ export const trendingProducts = [
     price: 189,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/37_20240918_235524_0036.png?v=1744626943",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/38_20240918_235524_0037.png?v=1744626943",
@@ -423,6 +445,7 @@ export const trendingProducts = [
     price: 189,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/21_20240918_235523_0020.png?v=1744626952",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/19_20240918_235523_0018.png?v=1744626952",
@@ -442,6 +465,7 @@ export const trendingProducts = [
     price: 189,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/14_20240918_235523_0013.png?v=1744626979",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/12_20240918_235522_0011.png?v=1744626979",
@@ -461,6 +485,7 @@ export const trendingProducts = [
     price: 196,
     compareAtPrice: 199,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_05b824f2-1078-4270-b4fa-220ba0ea2cf8.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_457b87f3-d84d-408f-ac42-e7130f7639f1.jpg?v=1735154041",
@@ -481,6 +506,7 @@ export const trendingProducts = [
     price: 899,
     compareAtPrice: 1194,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_9deed63a-14af-4bb1-ab86-959f516c611b.jpg?v=1728245741",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_a4034988-be2a-4149-902b-4544bbf715b9.jpg?v=1728245741",
@@ -499,6 +525,7 @@ export const trendingProducts = [
     price: 196,
     compareAtPrice: 199,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6.jpg?v=1735154105",
@@ -518,6 +545,7 @@ export const trendingProducts = [
     price: 196,
     compareAtPrice: 199,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_b0b60a5e-1cbb-4114-add5-007c9ba0b68e.jpg?v=1735154118",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_c6af6957-8880-4115-aa35-6d4bb5904229.jpg?v=1735154118",
@@ -539,6 +567,7 @@ export const trendingProducts = [
     price: 499,
     compareAtPrice: 597,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Jasmie-rose-and-sandal.jpg?v=1728161597",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_0222d9a0-f818-4d8f-9566-737066c17dfd.jpg?v=1728161627",
@@ -556,6 +585,7 @@ export const trendingProducts = [
     price: 196,
     compareAtPrice: 199,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_5c5025a1-ac3b-4ee1-9507-b9fcdd0a433a.jpg?v=1744453169",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_ecaad99f-3964-4935-928b-c48b037f5b02.jpg?v=1744453169",
@@ -574,6 +604,7 @@ export const trendingProducts = [
     price: 499,
     compareAtPrice: 597,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/oud-tuberose-and-lavender.jpg?v=1728162034",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_16acaf06-7c37-44f6-81ae-b98a437ff96b.jpg?v=1728162052",
@@ -591,6 +622,7 @@ export const trendingProducts = [
     price: 186,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/51_20250116_175100_0011.png?v=1744626850",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/57_20250115_160638_0041.png?v=1744626850",
@@ -608,6 +640,7 @@ export const trendingProducts = [
     price: 186,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/48_20250116_175100_0008.png?v=1744626844",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/amzn_2500x2500px__20250115_161715_0000.png?v=1744626844",
@@ -626,6 +659,7 @@ export const trendingProducts = [
     price: 186,
     compareAtPrice: 299,
     available: true,
+    amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/49_20250116_175100_0009.png?v=1744626860",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/55_20250115_160638_0039.png?v=1744626860",

@@ -13,6 +13,7 @@ const ProductPage = () => {
     if (location.state) {
       setProduct(location.state);
       setActiveImg(location.state?.images?.[0] || "");
+      console.log("Product received:", location.state);
     }
   }, [location.state]);
 
@@ -39,9 +40,8 @@ const ProductPage = () => {
                 <button
                   key={i}
                   onClick={() => setActiveImg(img)}
-                  className={`shrink-0 border rounded-md p-2 bg-white transition ${
-                    activeImg === img ? "border-black" : "border-gray-200"
-                  }`}
+                  className={`shrink-0 border rounded-md p-2 bg-white transition ${activeImg === img ? "border-black" : "border-gray-200"
+                    }`}
                 >
                   <img
                     src={img}
@@ -79,10 +79,10 @@ const ProductPage = () => {
               <span className="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">
                 {product.compareAtPrice
                   ? `${Math.round(
-                      ((product.compareAtPrice - product.price) /
-                        product.compareAtPrice) *
-                        100,
-                    )}%`
+                    ((product.compareAtPrice - product.price) /
+                      product.compareAtPrice) *
+                    100,
+                  )}%`
                   : "0%"}
               </span>
 
@@ -98,9 +98,26 @@ const ProductPage = () => {
               <span className="text-gray-500 text-sm">Tax Included</span>
             </div>
 
-            <button className="mt-4 w-full bg-black text-white py-4 rounded-md tracking-[0.25em] uppercase text-sm hover:bg-black/90 transition">
-              Buy Now at Amazon
-            </button>
+            {product?.amazonUrl ? (
+              <a
+                href={product.amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 w-full bg-black text-white py-4 rounded-md tracking-[0.25em] uppercase text-sm hover:bg-black/90 transition text-center block"
+              >
+                Buy Now at Amazon
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="mt-4 w-full bg-black/60 text-white py-4 rounded-md tracking-[0.25em] uppercase text-sm text-center block cursor-not-allowed"
+              >
+                Amazon link not set
+              </button>
+            )}
+
+
           </section>
         </div>
 

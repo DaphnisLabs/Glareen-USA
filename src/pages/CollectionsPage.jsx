@@ -10,6 +10,7 @@ const CollectionsPage = () => {
   const { id } = useParams();
 
   const products = productDataMap[id] || [];
+  console.log("Collections products[0]:", products[0]);
   const banner = collectionBannerImages[id];
   const mobileBanner = mobileollectionBannerImages[id];
 
@@ -27,8 +28,8 @@ const CollectionsPage = () => {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-5 place-items-center mt-10">
-        {products.map((item, index) => (
-          <ProductCard item={item} key={index} />
+        {products.map((item) => (
+          <ProductCard item={item} key={item.id} />
         ))}
       </div>
     </div>

@@ -3,9 +3,47 @@ import { useState } from "react";
 const EnquirySection = () => {
   const [qty, setQty] = useState(10);
 
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    products: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState({ loading: false, ok: null, msg: "" });
+
   const handleQty = (type) => {
     if (type === "inc") return setQty((p) => p + 1);
     if (type === "dec") return setQty((p) => Math.max(1, p - 1));
+  };
+
+  const onChange = (e) => {
+    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ loading: true, ok: null, msg: "" });
+
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/enquiry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, qty }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data?.message || "Failed to submit enquiry");
+      }
+
+      setStatus({ loading: false, ok: true, msg: "Submitted! Check your email." });
+      setForm({ name: "", email: "", products: "", message: "" });
+      setQty(10);
+    } catch (err) {
+      setStatus({ loading: false, ok: false, msg: err.message || "Error" });
+    }
   };
 
   return (
@@ -15,25 +53,33 @@ const EnquirySection = () => {
           Enter the Details
         </h2>
 
-        <form className="mx-auto w-full max-w-3xl space-y-6">
-          {/* Name */}
+        <form onSubmit={onSubmit} className="mx-auto w-full max-w-3xl space-y-6">
           <input
             type="text"
+            name="name"
+            value={form.name}
+            onChange={onChange}
             placeholder="Name"
             className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+            required
           />
 
-          {/* Email */}
           <input
             type="email"
+            name="email"
+            value={form.email}
+            onChange={onChange}
             placeholder="Email"
             className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+            required
           />
 
-          {/* Products + Quantity */}
           <div className="flex flex-col md:flex-row md:items-center gap-5">
             <input
               type="text"
+              name="products"
+              value={form.products}
+              onChange={onChange}
               placeholder="Products of Interest"
               className="w-full md:flex-1 bg-white border border-gray-400 px-4 py-3 outline-none"
             />
@@ -68,22 +114,30 @@ const EnquirySection = () => {
             </div>
           </div>
 
-          {/* Message */}
           <textarea
+            name="message"
+            value={form.message}
+            onChange={onChange}
             placeholder="Message"
             rows={5}
             className="w-full bg-white border border-gray-400 px-4 py-3 outline-none resize-none"
           />
 
-          {/* Button */}
           <div className="flex justify-center pt-4">
             <button
               type="submit"
-              className="bg-[#f4b400] hover:bg-[#e3a700] transition text-black font-medium px-14 py-3"
+              disabled={status.loading}
+              className="bg-[#f4b400] hover:bg-[#e3a700] transition text-black font-medium px-14 py-3 disabled:opacity-60"
             >
-              Send
+              {status.loading ? "Sending..." : "Send"}
             </button>
           </div>
+
+          {status.ok !== null && (
+            <p className={`text-center ${status.ok ? "text-green-400" : "text-red-400"}`}>
+              {status.msg}
+            </p>
+          )}
         </form>
       </div>
     </section>
