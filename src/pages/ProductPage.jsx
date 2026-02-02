@@ -73,7 +73,7 @@ const ProductPage = () => {
 
             <div className="mt-4 flex items-center gap-3 flex-wrap">
               <p className="text-2xl font-bold text-gray-900">
-                ₹{Number(product.price).toFixed(2)}
+                ${Number(product.price).toFixed(2)}
               </p>
 
               <span className="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">
@@ -90,7 +90,7 @@ const ProductPage = () => {
                 <p className="text-gray-500 text-sm">
                   MRP:{" "}
                   <span className="line-through">
-                    ₹{Number(product.compareAtPrice).toFixed(2)}
+                    ${Number(product.compareAtPrice).toFixed(2)}
                   </span>
                 </p>
               )}
@@ -103,10 +103,17 @@ const ProductPage = () => {
                 href={product.amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 w-full bg-black text-white py-4 rounded-md tracking-[0.25em] uppercase text-sm hover:bg-black/90 transition text-center block"
+                className="mt-4 w-full bg-black text-white py-4 rounded-md uppercase text-sm hover:bg-black/90 transition flex items-center justify-center gap-3"
               >
-                Buy Now at Amazon
+                <span className="tracking-[0.25em] mb-2">BUY NOW AT</span>
+
+                <img
+                  src="https://www.pngmart.com/files/23/Amazon-Logo-White-PNG-Image.png"
+                  alt="Amazon"
+                  className="h-6 w-auto object-contain"
+                />
               </a>
+
             ) : (
               <button
                 type="button"

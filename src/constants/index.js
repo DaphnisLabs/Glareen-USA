@@ -31,8 +31,8 @@ export const productDataMap = {
       title: "Monsoon Bliss",
       handle: "glareen-monsoon-bliss-bamboo-less-dhoop-sticks",
       vendor: "Glareen",
-      price: 189,
-      compareAtPrice: 299,
+      price: 16,
+      compareAtPrice: 25.5,
       available: true,
       amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
       images: [
@@ -442,8 +442,8 @@ export const trendingProducts = [
     title: "Monsoon Bliss",
     handle: "glareen-monsoon-bliss-bamboo-less-dhoop-sticks",
     vendor: "Glareen",
-    price: 189,
-    compareAtPrice: 299,
+    price: 16,
+    compareAtPrice: 25.5,
     available: true,
     amazonUrl: "https://www.amazon.com/Glareen-Handcrafted-Charcoal-Free-Eco-Friendly-Long-Lasting/dp/B0DHWBJSNP/ref=sr_1_6?sr=8-6",
     images: [

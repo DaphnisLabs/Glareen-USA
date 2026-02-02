@@ -1,36 +1,49 @@
+import { useNavigate } from "react-router-dom";
+
 const collections = [
   {
+    id: "dhoop-sticks",
     title: "DHOOP STICK",
     image: "https://glareen.com/cdn/shop/files/Group_719_2.png?v=1744018734",
-    link: "/collections/dhoop-stick",
   },
   {
+    id: "dhoop-cones",
     title: "DHOOP CONE",
     image: "https://glareen.com/cdn/shop/files/Group_718_2.png?v=1744018763",
-    link: "/collections/dhoop-cone",
   },
   {
+    id: "incense-sticks",
     title: "INCENSE STICK",
-    image:
-      "https://glareen.com/cdn/shop/files/Group_740.png?v=1744018804",
-    link: "/collections/incense-stick",
+    image: "https://glareen.com/cdn/shop/files/Group_740.png?v=1744018804",
   },
 ];
 
 const Collection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="w-full bg-white py-10 mt-10">
       <div className="mx-auto px-4">
         <h1 className="text-center text-6xl my-6">Collections</h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-          <CollectionCard item={collections[0]} className="md:col-span-1" />
 
-          <CollectionCard item={collections[1]} className="md:col-span-1" />
-
-          <CollectionCard
-            item={collections[2]}
-            className="md:col-span-2 h-100"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {collections.map((col) => (
+            <div
+              key={col.id}
+              onClick={() => navigate(`/collections/${col.id}`)}
+              className="relative cursor-pointer group overflow-hidden"
+            >
+              <img
+                src={col.image}
+                alt={col.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
+                <h2 className="text-2xl font-bold">{col.title}</h2>
+                <p className="mt-2 text-sm text-yellow-400">SHOP NOW</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -38,30 +51,3 @@ const Collection = () => {
 };
 
 export default Collection;
-
-const CollectionCard = ({ item, className = "" }) => {
-  return (
-    <a
-      href={item.link}
-      className={`group relative overflow-hidden bg-black ${className}`}
-    >
-      {/* Image */}
-      <img
-        src={item.image}
-        alt={item.title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition" />
-
-      {/* Text */}
-      <div className="absolute top-4 right-4 text-right z-10">
-        <h3 className="text-white font-extrabold tracking-wide text-lg md:text-xl">
-          {item.title}
-        </h3>
-        <p className="text-yellow-400 text-xs font-semibold mt-1">SHOP NOW</p>
-      </div>
-    </a>
-  );
-};

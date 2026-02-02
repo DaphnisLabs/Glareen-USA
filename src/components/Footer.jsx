@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Youtube, X } from "lucide-react";
 
 const Footer = () => {
@@ -18,28 +19,44 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
           {/* Collections */}
           <FooterCol title="Collections">
-            <FooterLink>Dhoop Sticks</FooterLink>
-            <FooterLink>Incense Sticks</FooterLink>
-            <FooterLink>Dhoop cones</FooterLink>
+            <FooterLink to="/collections/dhoop-sticks">Dhoop Sticks</FooterLink>
+            <FooterLink to="/collections/incense-sticks">
+              Incense Sticks
+            </FooterLink>
+            <FooterLink to="/collections/dhoop-cones">Dhoop cones</FooterLink>
           </FooterCol>
 
           {/* Information */}
           <FooterCol title="Information">
-            <FooterLink>About Us</FooterLink>
-            <FooterLink>Bulk Order Enquiry</FooterLink>
-            <FooterLink>Distributor Enquiry</FooterLink>
-            <FooterLink>Export Enquiry</FooterLink>
-            <FooterLink>International Enquiry</FooterLink>
-            <FooterLink>Contact Us</FooterLink>
+            <FooterLink to="/about-us">About Us</FooterLink>
+            <FooterLink to="/bulk-enquiry">Bulk Order Enquiry</FooterLink>
+
+
+            <FooterLink to="/contact-us">Distributor Enquiry</FooterLink>
+            <FooterLink to="/contact-us">Export Enquiry</FooterLink>
+            <FooterLink to="/contact-us">International Enquiry</FooterLink>
+
+            <FooterLink to="/contact-us">Contact Us</FooterLink>
           </FooterCol>
 
           {/* Policies */}
           <FooterCol title="Policies">
-            <FooterLink>Contact Information</FooterLink>
-            <FooterLink>Privacy Policy</FooterLink>
-            <FooterLink>Shipping Policy</FooterLink>
-            <FooterLink>Return and refund policy</FooterLink>
-            <FooterLink>Terms of Service</FooterLink>
+            {/* If you later create internal pages, change these to `to="/privacy-policy"` etc. */}
+            <FooterExternalLink href="https://glareen.com/pages/contact">
+              Contact Information
+            </FooterExternalLink>
+            <FooterExternalLink href="https://glareen.com/policies/privacy-policy">
+              Privacy Policy
+            </FooterExternalLink>
+            <FooterExternalLink href="https://glareen.com/policies/shipping-policy">
+              Shipping Policy
+            </FooterExternalLink>
+            <FooterExternalLink href="https://glareen.com/policies/refund-policy">
+              Return and refund policy
+            </FooterExternalLink>
+            <FooterExternalLink href="https://glareen.com/policies/terms-of-service">
+              Terms of Service
+            </FooterExternalLink>
           </FooterCol>
         </div>
 
@@ -59,10 +76,23 @@ const Footer = () => {
           </p>
 
           <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
-            <SocialIcon Icon={Facebook} />
-            <SocialIcon Icon={Instagram} />
-            <SocialIcon Icon={Youtube} />
-            <SocialIcon Icon={X} />
+            {/* Put your real URLs here */}
+            <SocialLink
+              Icon={Facebook}
+              href="https://www.facebook.com/glareen.official/"
+              label="Facebook"
+            />
+            <SocialLink
+              Icon={Instagram}
+              href="https://www.instagram.com/glareen.official/"
+              label="Instagram"
+            />
+            <SocialLink
+              Icon={Youtube}
+              href="https://www.youtube.com/@Glareen"
+              label="YouTube"
+            />
+            <SocialLink Icon={X} href="pages/ContactPage.jsx" label="X" />
           </div>
         </div>
       </div>
@@ -85,23 +115,48 @@ const FooterCol = ({ title, children }) => {
   );
 };
 
-const FooterLink = ({ children }) => {
+/** Internal route link */
+const FooterLink = ({ to, children }) => {
   return (
-    <li className="cursor-pointer hover:text-white transition-colors">
-      {children}
+    <li>
+      <Link
+        to={to}
+        className="hover:text-white transition-colors inline-block"
+      >
+        {children}
+      </Link>
     </li>
   );
 };
 
-const SocialIcon = ({ Icon }) => {
+/** External link (policies, socials, etc.) */
+const FooterExternalLink = ({ href, children }) => {
   return (
-    <button
+    <li>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-white transition-colors inline-block"
+      >
+        {children}
+      </a>
+    </li>
+  );
+};
+
+const SocialLink = ({ Icon, href, label }) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center
                  border border-white/20 hover:bg-white/10 transition"
-      aria-label="social"
-      type="button"
+      aria-label={label}
+      title={label}
     >
       <Icon className="w-5 h-5" />
-    </button>
+    </a>
   );
 };
