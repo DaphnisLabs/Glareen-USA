@@ -20,7 +20,6 @@ const Footer = () => {
           <FooterCol title="Collections">
             <FooterLink>Dhoop Sticks</FooterLink>
             <FooterLink>Incense Sticks</FooterLink>
-            <FooterLink>Attar</FooterLink>
             <FooterLink>Dhoop cones</FooterLink>
           </FooterCol>
 

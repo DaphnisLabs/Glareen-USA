@@ -10,14 +10,9 @@ const collections = [
     link: "/collections/dhoop-cone",
   },
   {
-    title: "ATTAR",
-    image: "https://glareen.com/cdn/shop/files/Group_740.png?v=1744018804",
-    link: "/collections/attar",
-  },
-  {
     title: "INCENSE STICK",
     image:
-      "https://glareen.com/cdn/shop/files/Group_739_0bf8951a-365d-4062-b246-3f9c3b1eb917.png?v=1744096206",
+      "https://glareen.com/cdn/shop/files/Group_740.png?v=1744018804",
     link: "/collections/incense-stick",
   },
 ];
@@ -27,19 +22,14 @@ const Collection = () => {
     <section className="w-full bg-white py-10 mt-10">
       <div className="mx-auto px-4">
         <h1 className="text-center text-6xl my-6">Collections</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           <CollectionCard item={collections[0]} className="md:col-span-1" />
 
           <CollectionCard item={collections[1]} className="md:col-span-1" />
 
           <CollectionCard
             item={collections[2]}
-            className="md:col-span-1 md:row-span-2 h-105 md:h-full"
-          />
-
-          <CollectionCard
-            item={collections[3]}
-            className="md:col-span-2 h-65"
+            className="md:col-span-2 h-100"
           />
         </div>
       </div>
