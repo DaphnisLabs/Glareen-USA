@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import ProductAccordionSection from "../components/ProductAccordianSection";
+import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import { useLocation } from "react-router-dom";
 
 const ProductPage = () => {
@@ -18,8 +19,94 @@ const ProductPage = () => {
   }, [location.state]);
 
   if (!product) {
+    console.log("accordion on product:", product?.accordion);
     return <div className="p-10">Loading...</div>;
   }
+
+  const buildAccordionItems = (product) => {
+    const acc = product?.accordion;
+
+    if (!acc) return [];
+
+    return [
+      {
+        title: "KEY BENEFITS",
+        content: (
+          <ul className="list-disc pl-5 space-y-2">
+            {(acc.keyBenefits || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ul>
+        ),
+      },
+      {
+        title: "HOW TO USE",
+        content: (
+          <ol className="list-decimal pl-5 space-y-2">
+            {(acc.howToUse || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ol>
+        ),
+      },
+      {
+        title: "FAQ'S",
+        content: (
+          <div className="space-y-4">
+            {(acc.faqs || []).map((f, i) => (
+              <div key={i}>
+                <p className="font-semibold">Q: {f.q}</p>
+                <p className="text-gray-700">A: {f.a}</p>
+              </div>
+            ))}
+          </div>
+        ),
+      },
+      {
+        title: "OTHER INFORMATION",
+        content: (
+          <div className="space-y-3">
+            {(acc.otherInformation || "")
+              .split("\n\n")
+              .filter(Boolean)
+              .map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+          </div>
+        ),
+      },
+      {
+        title: "ALL INGREDIENTS",
+        content: (
+          <ul className="list-disc pl-5 space-y-2">
+            {(acc.allIngredients || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ul>
+        ),
+      },      
+    ];
+  };
+
+
+  const TRUST_BADGES = [
+    {
+      title: "Secure Checkout ✅",
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Secure_Checkout.png?v=1742909754",
+    },
+    {
+      title: "COD Above ₹499",
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Cod_above_499.png?v=1742909755",
+    },
+    {
+      title: "Free Return If Damaged",
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Free_Return_if_damaged.png?v=1742909753",
+    },
+    {
+      title: "Made In India",
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Made_in_India.png?v=1742909754",
+    },
+  ];
 
   return (
     <div className="w-full bg-white">
@@ -128,7 +215,8 @@ const ProductPage = () => {
           </section>
         </div>
 
-        <ProductAccordionSection />
+        <ProductAccordionSection items={buildAccordionItems(product)} />
+        <TrustBadgesSection badges={TRUST_BADGES} />
       </div>
     </div>
   );
