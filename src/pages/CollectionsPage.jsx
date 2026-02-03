@@ -14,11 +14,14 @@ const CollectionsPage = () => {
   const banner = collectionBannerImages?.[id];
   const mobileBanner = mobileollectionBannerImages?.[id];
 
-  const isValidCollection = Object.prototype.hasOwnProperty.call(productDataMap, id);
+  const isValidCollection = Object.prototype.hasOwnProperty.call(
+    productDataMap,
+    id
+  );
 
   return (
-    <div className="pb-12">
-      {/* Banner */}
+    <div className="w-full overflow-x-hidden pb-14">
+      {/* ===== Banner ===== */}
       <div className="w-full">
         {mobileBanner && (
           <img
@@ -40,31 +43,42 @@ const CollectionsPage = () => {
         )}
       </div>
 
-      {/* Products */}
-      <div className="mx-auto max-w-7xl px-4 md:px-8 mt-8">
+      {/* ===== Products ===== */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
         {!isValidCollection ? (
-          <div className="text-center py-14">
-            <p className="text-lg text-gray-700 font-medium">
-              Invalid collection: <span className="font-mono">{id}</span>
+          <div className="text-center py-16">
+            <p className="text-lg font-medium text-gray-800">
+              Invalid collection:{" "}
+              <span className="font-mono text-gray-600">{id}</span>
             </p>
             <p className="text-gray-500 mt-2">
               Please choose a collection from the menu.
             </p>
             <Link
               to="/"
-              className="inline-block mt-6 px-5 py-3 rounded-md bg-black text-white"
+              className="inline-block mt-6 px-6 py-3 rounded-md bg-black text-white hover:bg-black/90 transition"
             >
               Go to Home
             </Link>
           </div>
         ) : products.length === 0 ? (
-          <p className="text-center text-gray-500 text-base sm:text-lg py-14">
+          <p className="text-center text-gray-500 text-base sm:text-lg py-16">
             No products found in this collection.
           </p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div
+            className="
+              grid 
+              grid-cols-1 
+              sm:grid-cols-2 
+              lg:grid-cols-4 
+              gap-5 sm:gap-6
+            "
+          >
             {products.map((item) => (
-              <ProductCard item={item} key={item.id} />
+              <div key={item.id} className="w-full">
+                <ProductCard item={item} />
+              </div>
             ))}
           </div>
         )}
