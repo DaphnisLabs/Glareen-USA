@@ -237,7 +237,7 @@ const ProductPage = () => {
                       rel="noopener noreferrer"
                       className="w-full bg-black text-white py-4 rounded-xl uppercase text-sm hover:bg-black/90 transition flex items-center justify-center gap-3 shadow-sm"
                     >
-                      <span className="tracking-[0.25em]">BUY NOW AT</span>
+                      <span className="tracking-[0.25em] text-xl ">BUY NOW AT</span>
                       <img
                         src="https://www.pngmart.com/files/23/Amazon-Logo-White-PNG-Image.png"
                         alt="Amazon"
