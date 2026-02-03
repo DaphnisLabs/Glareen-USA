@@ -32,31 +32,22 @@ const Footer = () => {
             <FooterLink to="/bulk-enquiry">Bulk Order Enquiry</FooterLink>
 
 
-            <FooterLink to="/contact-us">Distributor Enquiry</FooterLink>
-            <FooterLink to="/contact-us">Export Enquiry</FooterLink>
-            <FooterLink to="/contact-us">International Enquiry</FooterLink>
+            <FooterLink to="/distributor-enquiry">Distributor Enquiry</FooterLink>
+            <FooterLink to="/export-enquiry">Export Enquiry</FooterLink>
+            <FooterLink to="/international-enquiry">International Enquiry</FooterLink>
 
             <FooterLink to="/contact-us">Contact Us</FooterLink>
           </FooterCol>
 
           {/* Policies */}
           <FooterCol title="Policies">
-            {/* If you later create internal pages, change these to `to="/privacy-policy"` etc. */}
             <FooterExternalLink href="https://glareen.com/pages/contact">
               Contact Information
             </FooterExternalLink>
-            <FooterExternalLink href="https://glareen.com/policies/privacy-policy">
-              Privacy Policy
-            </FooterExternalLink>
-            <FooterExternalLink href="https://glareen.com/policies/shipping-policy">
-              Shipping Policy
-            </FooterExternalLink>
-            <FooterExternalLink href="https://glareen.com/policies/refund-policy">
-              Return and refund policy
-            </FooterExternalLink>
-            <FooterExternalLink href="https://glareen.com/policies/terms-of-service">
-              Terms of Service
-            </FooterExternalLink>
+            <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+            <FooterLink to="/refund-policy">Return & refund Policy</FooterLink>
+            <FooterLink to="/shipping-policy">Shipping Policy</FooterLink>
+            <FooterLink to="/terms-of-service">Terms Of Service</FooterLink>
           </FooterCol>
         </div>
 
@@ -76,7 +67,6 @@ const Footer = () => {
           </p>
 
           <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
-            {/* Put your real URLs here */}
             <SocialLink
               Icon={Facebook}
               href="https://www.facebook.com/glareen.official/"
@@ -92,7 +82,7 @@ const Footer = () => {
               href="https://www.youtube.com/@Glareen"
               label="YouTube"
             />
-            <SocialLink Icon={X} href="pages/ContactPage.jsx" label="X" />
+            <SocialLink Icon={X} href="/" label="X" />
           </div>
         </div>
       </div>

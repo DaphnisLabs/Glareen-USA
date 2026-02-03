@@ -1,10 +1,34 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-const EnquirySection = () => {
+const COUNTRIES = ["India", "United States", "United Kingdom", "Canada"];
+
+const EnquirySection = ({
+  enquiryType = "bulk", // bulk | export | distributor | international
+}) => {
   const [qty, setQty] = useState(10);
+
+  const fields = useMemo(() => {
+    // base fields used everywhere
+    const base = ["name", "email", "products", "message"];
+
+    if (enquiryType === "bulk") return base;
+
+    if (enquiryType === "export" || enquiryType === "distributor") {
+      return ["name", "companyname", "email", "products", "message"];
+    }
+
+    if (enquiryType === "international") {
+      return ["name", "country", "phone", "email", "products", "message"];
+    }
+
+    return base;
+  }, [enquiryType]);
 
   const [form, setForm] = useState({
     name: "",
+    companyname: "",
+    country: "",
+    phone: "",
     email: "",
     products: "",
     message: "",
@@ -13,12 +37,25 @@ const EnquirySection = () => {
   const [status, setStatus] = useState({ loading: false, ok: null, msg: "" });
 
   const handleQty = (type) => {
-    if (type === "inc") return setQty((p) => p + 1);
-    if (type === "dec") return setQty((p) => Math.max(1, p - 1));
+    if (type === "inc") setQty((p) => p + 1);
+    if (type === "dec") setQty((p) => Math.max(1, p - 1));
   };
 
   const onChange = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+  };
+
+  const resetForm = () => {
+    setForm({
+      name: "",
+      companyname: "",
+      country: "",
+      phone: "",
+      email: "",
+      products: "",
+      message: "",
+    });
+    setQty(10);
   };
 
   const onSubmit = async (e) => {
@@ -26,21 +63,31 @@ const EnquirySection = () => {
     setStatus({ loading: true, ok: null, msg: "" });
 
     try {
+      // Send only the fields that are shown + qty + enquiryType
+      const payload = {
+        enquiryType,
+        qty,
+      };
+
+      fields.forEach((key) => {
+        payload[key] = form[key];
+      });
+
       const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, qty }),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.message || "Failed to submit enquiry");
 
-      if (!res.ok) {
-        throw new Error(data?.message || "Failed to submit enquiry");
-      }
-
-      setStatus({ loading: false, ok: true, msg: "Submitted! Check your email." });
-      setForm({ name: "", email: "", products: "", message: "" });
-      setQty(10);
+      setStatus({
+        loading: false,
+        ok: true,
+        msg: "Submitted! We’ll contact you soon.",
+      });
+      resetForm();
     } catch (err) {
       setStatus({ loading: false, ok: false, msg: err.message || "Error" });
     }
@@ -54,75 +101,133 @@ const EnquirySection = () => {
         </h2>
 
         <form onSubmit={onSubmit} className="mx-auto w-full max-w-3xl space-y-6">
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={onChange}
-            placeholder="Name"
-            className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
-            required
-          />
-
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={onChange}
-            placeholder="Email"
-            className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
-            required
-          />
-
-          <div className="flex flex-col md:flex-row md:items-center gap-5">
+          {/* Name */}
+          {fields.includes("name") && (
             <input
               type="text"
-              name="products"
-              value={form.products}
+              name="name"
+              value={form.name}
               onChange={onChange}
-              placeholder="Products of Interest"
-              className="w-full md:flex-1 bg-white border border-gray-400 px-4 py-3 outline-none"
+              placeholder="Name*"
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+              required
             />
+          )}
 
-            <div className="flex items-center justify-between md:justify-end gap-4">
-              <p className="text-white font-semibold text-lg">Quantity</p>
+          {/* Company Name */}
+          {fields.includes("companyname") && (
+            <input
+              type="text"
+              name="companyname"
+              value={form.companyname}
+              onChange={onChange}
+              placeholder="Company Name*"
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+              required
+            />
+          )}
 
-              <div className="flex items-center">
-                <input
-                  value={qty}
-                  readOnly
-                  className="w-28 text-center bg-white border border-gray-400 px-3 py-3 outline-none"
-                />
+          {/* Country dropdown */}
+          {fields.includes("country") && (
+            <select
+              name="country"
+              value={form.country}
+              onChange={onChange}
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+              required
+            >
+              <option value="">Select Country</option>
+              {COUNTRIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          )}
 
-                <div className="flex flex-col ml-2">
-                  <button
-                    type="button"
-                    onClick={() => handleQty("inc")}
-                    className="text-white leading-none px-2"
-                  >
-                    +
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleQty("dec")}
-                    className="text-white leading-none px-2"
-                  >
-                    -
-                  </button>
+          {/* Phone */}
+          {fields.includes("phone") && (
+            <input
+              type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={onChange}
+              placeholder="Mobile*"
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+              required
+            />
+          )}
+
+          {/* Email */}
+          {fields.includes("email") && (
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={onChange}
+              placeholder="Email*"
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none"
+              required
+            />
+          )}
+
+          {/* Products + Qty */}
+          {fields.includes("products") && (
+            <div className="flex flex-col md:flex-row md:items-center gap-5">
+              <input
+                type="text"
+                name="products"
+                value={form.products}
+                onChange={onChange}
+                placeholder="Products of Interest*"
+                className="w-full md:flex-1 bg-white border border-gray-400 px-4 py-3 outline-none"
+                required
+              />
+
+              <div className="flex items-center justify-between md:justify-end gap-4">
+                <p className="text-white font-semibold text-lg">Quantity</p>
+
+                <div className="flex items-center">
+                  <input
+                    value={qty}
+                    readOnly
+                    className="w-24 text-center bg-white border border-gray-400 px-3 py-3 outline-none"
+                  />
+
+                  <div className="flex flex-col ml-2">
+                    <button
+                      type="button"
+                      onClick={() => handleQty("inc")}
+                      className="text-white leading-none px-2"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQty("dec")}
+                      className="text-white leading-none px-2"
+                    >
+                      -
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
 
-          <textarea
-            name="message"
-            value={form.message}
-            onChange={onChange}
-            placeholder="Message"
-            rows={5}
-            className="w-full bg-white border border-gray-400 px-4 py-3 outline-none resize-none"
-          />
+          {/* Message */}
+          {fields.includes("message") && (
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={onChange}
+              placeholder="Message"
+              rows={5}
+              className="w-full bg-white border border-gray-400 px-4 py-3 outline-none resize-none"
+            />
+          )}
 
+          {/* Submit */}
           <div className="flex justify-center pt-4">
             <button
               type="submit"

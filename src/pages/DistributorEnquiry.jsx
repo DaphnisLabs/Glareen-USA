@@ -1,11 +1,10 @@
-import HomeBanner from "../components/HomeBanner";
-import Collection from "../components/Collection";
-import ProductCard from "../components/ProductCard";
+import EnquirySection from "../components/EnquirySection"
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
-import { trendingProducts } from "../constants";
 
-const Home = () => {
+
+
+const DistributorEnquiry = () => {
   const TESTIMONIALS = [
     {
       text:
@@ -48,6 +47,7 @@ const Home = () => {
         stars: 5,
       },
   ];
+
   const TRUST_BADGES = [
     {
       title: "Secure Checkout ✅",
@@ -66,37 +66,16 @@ const Home = () => {
       img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Made_in_India.png?v=1742909754", 
     },
   ];
-
   return (
     <>
-      <HomeBanner />
-      <div className="flex flex-col justify-center items-center w-full px-4">
-        <h1 className="text-6xl my-16">100% Natural Extraction</h1>
-        <img
-          src="https://cdn.shopify.com/s/files/1/0610/3072/7749/files/EXTRACTION.png?v=1744034159"
-          alt="info-img"
-          className="w-[90%]"
-        />
-      </div>
-      <Collection />
-      <section className="flex flex-col">
-        <h1 className="text-center text-[#343434] font-normal text-6xl my-8">
-          Top Trending Products
-        </h1>
-        <div className="overflow-x-auto scrollbar-hide scroll-smooth touch-pan-x">
-          <div className="flex gap-5 px-6 md:px-12 py-2 w-max">
-            {trendingProducts.map((item) => (
-              <ProductCard item={item} isBestSeller={true} />
-            ))}
-          </div>
+    <div>
+        <img src="https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Background_6.png?v=1744459372" alt="distributor-enquiry-banner" />
+        <EnquirySection enquiryType="distributor" />
         </div>
-      </section>
-      
-      <TestimonialsSection testimonials={TESTIMONIALS} />
-      <TrustBadgesSection badges={TRUST_BADGES} />
-
+    <TestimonialsSection testimonials={TESTIMONIALS} />
+    <TrustBadgesSection badges={TRUST_BADGES} />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default DistributorEnquiry
