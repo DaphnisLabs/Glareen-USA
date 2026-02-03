@@ -70,31 +70,39 @@ const Home = () => {
   return (
     <>
       <HomeBanner />
-      <div className="flex flex-col justify-center items-center w-full px-4">
-        <h1 className="text-6xl my-16">100% Natural Extraction</h1>
+
+      <section className="flex flex-col justify-center items-center w-full px-4 sm:px-6 py-10">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-center mb-8">
+          100% Natural Extraction
+        </h1>
+
         <img
           src="https://cdn.shopify.com/s/files/1/0610/3072/7749/files/EXTRACTION.png?v=1744034159"
           alt="info-img"
-          className="w-[90%]"
+          className="w-full max-w-5xl"
+          loading="lazy"
+          decoding="async"
         />
-      </div>
+      </section>
+
       <Collection />
-      <section className="flex flex-col">
-        <h1 className="text-center text-[#343434] font-normal text-6xl my-8">
+
+      <section className="flex flex-col py-10">
+        <h1 className="text-center text-[#343434] font-semibold text-3xl sm:text-5xl lg:text-6xl mb-6">
           Top Trending Products
         </h1>
+
         <div className="overflow-x-auto scrollbar-hide scroll-smooth touch-pan-x">
-          <div className="flex gap-5 px-6 md:px-12 py-2 w-max">
+          <div className="flex gap-4 sm:gap-5 px-4 sm:px-6 md:px-10 py-2 w-max">
             {trendingProducts.map((item) => (
-              <ProductCard item={item} isBestSeller={true} />
+              <ProductCard key={item.id} item={item} isBestSeller={true} />
             ))}
           </div>
         </div>
       </section>
-      
+
       <TestimonialsSection testimonials={TESTIMONIALS} />
       <TrustBadgesSection badges={TRUST_BADGES} />
-
     </>
   );
 };
