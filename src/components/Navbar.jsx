@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const logo =
   "https://glareen.com/cdn/shop/files/small_-_transparent_170x_2x_6d027a98-ca48-4294-a695-10f907053051.png?v=1742877730&width=255";
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const Navbar = () => {
+    const [open, setOpen] = useState(false);
+  
+    useEffect(() => {
+      document.body.style.overflow = open ? "hidden" : "";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [open]);
 
   const closeMenu = () => setOpen(false);
 

@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Star, Leaf, Clock3, Sparkles, CloudRain, Flame, Droplets } from "lucide-react";
 import ProductAccordionSection from "../components/ProductAccordianSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
+import ReviewsSection from "../components/sections/ReviewsSection";
+import { seedReviewsByHandle } from "../constants/reviewsSeed";
 import { useLocation } from "react-router-dom";
 
 const ProductPage = () => {
@@ -149,11 +151,10 @@ const ProductPage = () => {
                   <button
                     key={i}
                     onClick={() => setActiveImg(img)}
-                    className={`shrink-0 rounded-xl p-2 bg-white transition shadow-sm border ${
-                      activeImg === img
+                    className={`shrink-0 rounded-xl p-2 bg-white transition shadow-sm border ${activeImg === img
                         ? "border-gray-900"
                         : "border-gray-200 hover:border-gray-400"
-                    }`}
+                      }`}
                   >
                     <img src={img} alt={`thumb-${i}`} className="w-20 h-16 object-contain" />
                   </button>
@@ -185,9 +186,9 @@ const ProductPage = () => {
                   <span className="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded-full">
                     {product.compareAtPrice
                       ? `${Math.round(
-                          ((product.compareAtPrice - product.price) / product.compareAtPrice) *
-                            100
-                        )}%`
+                        ((product.compareAtPrice - product.price) / product.compareAtPrice) *
+                        100
+                      )}%`
                       : "0%"}
                   </span>
 
@@ -260,6 +261,10 @@ const ProductPage = () => {
 
           <ProductAccordionSection items={buildAccordionItems(product)} />
           <TrustBadgesSection badges={TRUST_BADGES} />
+          <ReviewsSection
+            productHandle={product.handle}
+            seedReviews={seedReviewsByHandle[product.handle] || []}
+          />
         </div>
       </div>
 

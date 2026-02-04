@@ -20,7 +20,7 @@ const CollectionsPage = () => {
   );
 
   return (
-    <div className="overflow-x-hidden pb-14">
+    <div className="w-full overflow-x-hidden pb-14">
       {/* ===== Banner ===== */}
       <div className="w-full">
         {mobileBanner && (
@@ -66,11 +66,14 @@ const CollectionsPage = () => {
             No products found in this collection.
           </p>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-          {products.map((item) => (
-            <ProductCard key={item.id} item={item} />
-          ))}
-        </div>        
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {products.map((item) => (
+              <div key={item.id} className="min-w-0">
+                <ProductCard item={item} />
+              </div>
+            ))}
+          </div>
+
         )}
       </div>
     </div>
