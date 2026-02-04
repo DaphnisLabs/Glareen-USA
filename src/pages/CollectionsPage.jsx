@@ -20,14 +20,14 @@ const CollectionsPage = () => {
   );
 
   return (
-    <div className="w-full overflow-x-hidden pb-14">
+    <div className="overflow-x-hidden pb-14">
       {/* ===== Banner ===== */}
       <div className="w-full">
         {mobileBanner && (
           <img
             src={mobileBanner}
             alt="collection-mobile-banner"
-            className="w-full block md:hidden"
+            className=" block md:hidden"
             loading="eager"
             decoding="async"
           />
@@ -36,7 +36,7 @@ const CollectionsPage = () => {
           <img
             src={banner}
             alt="collection-desktop-banner"
-            className="w-full hidden md:block"
+            className=" hidden md:block"
             loading="eager"
             decoding="async"
           />
@@ -66,11 +66,11 @@ const CollectionsPage = () => {
             No products found in this collection.
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((item) => (
-              <ProductCard item={item} key={item.id} />
-            ))}
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+          {products.map((item) => (
+            <ProductCard key={item.id} item={item} />
+          ))}
+        </div>        
         )}
       </div>
     </div>
