@@ -114,10 +114,6 @@ const ProductPage = () => {
       img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Secure_Checkout.png?v=1742909754",
     },
     {
-      title: "COD Above ₹499",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Cod_above_499.png?v=1742909755",
-    },
-    {
       title: "Free Return If Damaged",
       img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Free_Return_if_damaged.png?v=1742909753",
     },
