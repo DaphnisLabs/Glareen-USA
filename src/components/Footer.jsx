@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Youtube, X } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -30,7 +30,6 @@ const Footer = () => {
           <FooterCol title="Information">
             <FooterLink to="/about-us">About Us</FooterLink>
             <FooterLink to="/bulk-enquiry">Bulk Order Enquiry</FooterLink>
-
 
             <FooterLink to="/distributor-enquiry">Distributor Enquiry</FooterLink>
             <FooterLink to="/export-enquiry">Export Enquiry</FooterLink>
@@ -82,7 +81,6 @@ const Footer = () => {
               href="https://www.youtube.com/@Glareen"
               label="YouTube"
             />
-            <SocialLink Icon={X} href="/" label="X" />
           </div>
         </div>
       </div>
@@ -109,10 +107,7 @@ const FooterCol = ({ title, children }) => {
 const FooterLink = ({ to, children }) => {
   return (
     <li>
-      <Link
-        to={to}
-        className="hover:text-white transition-colors inline-block"
-      >
+      <Link to={to} className="hover:text-white transition-colors inline-block">
         {children}
       </Link>
     </li>
