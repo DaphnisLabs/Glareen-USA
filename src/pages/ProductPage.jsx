@@ -1,5 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
-import { Star, Leaf, Clock3, Sparkles, CloudRain, Flame, Droplets } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  Star,
+  Leaf,
+  Clock3,
+  Sparkles,
+  CloudRain,
+  Flame,
+  Droplets,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import ProductAccordionSection from "../components/ProductAccordianSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import ReviewsSection from "../components/sections/ReviewsSection";
@@ -10,12 +20,14 @@ const ProductPage = () => {
   const location = useLocation();
 
   const [product, setProduct] = useState(null);
-  const [activeImg, setActiveImg] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const touchStartX = useRef(null);
 
   useEffect(() => {
     if (location.state) {
       setProduct(location.state);
-      setActiveImg(location.state?.images?.[0] || "");
+      setActiveIndex(0);
       console.log("Product received:", location.state);
     }
   }, [location.state]);
@@ -52,6 +64,26 @@ const ProductPage = () => {
     ];
   }, [productType]);
 
+  // ✅ Reviews for this product (from your seeded map)
+  const reviews = useMemo(() => {
+    return seedReviewsByHandle[product?.handle] || [];
+  }, [product?.handle]);
+
+  const reviewCount = reviews.length;
+
+  const avgRating = useMemo(() => {
+    if (!reviewCount) return 0;
+
+    const total = reviews.reduce((sum, r) => {
+      const val = Number(r.rating ?? r.stars ?? 0);
+      return sum + (Number.isFinite(val) ? val : 0);
+    }, 0);
+
+    return total / reviewCount;
+  }, [reviews, reviewCount]);
+
+  const filledStars = Math.round(avgRating); // 0..5
+
   const buildAccordionItems = (p) => {
     const acc = p?.accordion;
     if (!acc) return [];
@@ -61,7 +93,9 @@ const ProductPage = () => {
         title: "KEY BENEFITS",
         content: (
           <ul className="list-disc pl-5 space-y-2">
-            {(acc.keyBenefits || []).map((x, i) => <li key={i}>{x}</li>)}
+            {(acc.keyBenefits || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
           </ul>
         ),
       },
@@ -69,7 +103,9 @@ const ProductPage = () => {
         title: "HOW TO USE",
         content: (
           <ol className="list-decimal pl-5 space-y-2">
-            {(acc.howToUse || []).map((x, i) => <li key={i}>{x}</li>)}
+            {(acc.howToUse || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
           </ol>
         ),
       },
@@ -93,7 +129,9 @@ const ProductPage = () => {
             {(acc.otherInformation || "")
               .split("\n\n")
               .filter(Boolean)
-              .map((para, i) => <p key={i}>{para}</p>)}
+              .map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
           </div>
         ),
       },
@@ -101,7 +139,9 @@ const ProductPage = () => {
         title: "ALL INGREDIENTS",
         content: (
           <ul className="list-disc pl-5 space-y-2">
-            {(acc.allIngredients || []).map((x, i) => <li key={i}>{x}</li>)}
+            {(acc.allIngredients || []).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
           </ul>
         ),
       },
@@ -123,6 +163,35 @@ const ProductPage = () => {
     },
   ];
 
+  const images = product?.images || [];
+  const activeImg = images[activeIndex] || "";
+
+  const goPrev = () => {
+    if (images.length <= 1) return;
+    setActiveIndex((i) => (i - 1 + images.length) % images.length);
+  };
+
+  const goNext = () => {
+    if (images.length <= 1) return;
+    setActiveIndex((i) => (i + 1) % images.length);
+  };
+
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches?.[0]?.clientX ?? null;
+  };
+
+  const onTouchEnd = (e) => {
+    if (touchStartX.current == null) return;
+    const endX = e.changedTouches?.[0]?.clientX ?? touchStartX.current;
+    const dx = endX - touchStartX.current;
+    touchStartX.current = null;
+
+    if (Math.abs(dx) < 50) return;
+
+    if (dx < 0) goNext();
+    else goPrev();
+  };
+
   if (!product) return <div className="p-10">Loading...</div>;
 
   return (
@@ -133,33 +202,72 @@ const ProductPage = () => {
             {/* LEFT */}
             <section className="animate-fadeInUp">
               <div className="w-full rounded-2xl bg-white p-4 md:p-6 shadow-sm border border-gray-100">
-                <div className="rounded-xl bg-linear-to-br from-emerald-50 to-white p-4">
+                <div
+                  className="relative rounded-xl bg-linear-to-br from-emerald-50 to-white p-4"
+                  onTouchStart={onTouchStart}
+                  onTouchEnd={onTouchEnd}
+                >
+                  {images.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={goPrev}
+                        aria-label="Previous image"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 z-10
+                                   h-10 w-10 rounded-full bg-white/80 hover:bg-white
+                                   border border-gray-200 shadow-sm flex items-center justify-center"
+                      >
+                        <ChevronLeft className="h-5 w-5 text-gray-800" />
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={goNext}
+                        aria-label="Next image"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 z-10
+                                   h-10 w-10 rounded-full bg-white/80 hover:bg-white
+                                   border border-gray-200 shadow-sm flex items-center justify-center"
+                      >
+                        <ChevronRight className="h-5 w-5 text-gray-800" />
+                      </button>
+                    </>
+                  )}
+
                   <img
                     src={activeImg}
                     alt="product"
-                    className="w-full h-105 md:h-130 object-contain"
+                    draggable={false}
+                    className="w-full h-105 md:h-130 object-contain select-none"
                   />
                 </div>
               </div>
 
               <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
-                {product.images?.map((img, i) => (
+                {images.map((img, i) => (
                   <button
                     key={i}
-                    onClick={() => setActiveImg(img)}
-                    className={`shrink-0 rounded-xl p-2 bg-white transition shadow-sm border ${activeImg === img
+                    onClick={() => setActiveIndex(i)}
+                    className={`shrink-0 rounded-xl p-2 bg-white transition shadow-sm border ${
+                      activeIndex === i
                         ? "border-gray-900"
                         : "border-gray-200 hover:border-gray-400"
-                      }`}
+                    }`}
                   >
-                    <img src={img} alt={`thumb-${i}`} className="w-20 h-16 object-contain" />
+                    <img
+                      src={img}
+                      alt={`thumb-${i}`}
+                      className="w-20 h-16 object-contain"
+                    />
                   </button>
                 ))}
               </div>
             </section>
 
             {/* RIGHT */}
-            <section className="space-y-6 animate-fadeInUp" style={{ animationDelay: "80ms" }}>
+            <section
+              className="space-y-6 animate-fadeInUp"
+              style={{ animationDelay: "80ms" }}
+            >
               <div className="rounded-2xl bg-white p-6 md:p-7 shadow-sm border border-gray-100">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                   {product.title}
@@ -168,10 +276,19 @@ const ProductPage = () => {
                 <div className="mt-3 flex items-center gap-2">
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, idx) => (
-                      <Star key={idx} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={idx}
+                        className={`w-5 h-5 ${
+                          idx < filledStars
+                            ? "fill-yellow-400 text-yellow-400"
+                            : "fill-transparent text-gray-300"
+                        }`}
+                      />
                     ))}
                   </div>
-                  <span className="text-gray-600 text-sm">12 reviews</span>
+                  <span className="text-gray-600 text-sm">
+                    {reviewCount} review{reviewCount === 1 ? "" : "s"}
+                  </span>
                 </div>
 
                 <div className="mt-4 flex items-center gap-3 flex-wrap">
@@ -182,9 +299,10 @@ const ProductPage = () => {
                   <span className="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded-full">
                     {product.compareAtPrice
                       ? `${Math.round(
-                        ((product.compareAtPrice - product.price) / product.compareAtPrice) *
-                        100
-                      )}%`
+                          ((product.compareAtPrice - product.price) /
+                            product.compareAtPrice) *
+                            100
+                        )}%`
                       : "0%"}
                   </span>
 
@@ -234,7 +352,9 @@ const ProductPage = () => {
                       rel="noopener noreferrer"
                       className="w-full bg-black text-white py-4 rounded-xl uppercase text-sm hover:bg-black/90 transition flex items-center justify-center gap-3 shadow-sm"
                     >
-                      <span className="tracking-[0.25em] text-xl ">BUY NOW AT</span>
+                      <span className="tracking-[0.25em] text-xl ">
+                        BUY NOW AT
+                      </span>
                       <img
                         src="https://www.pngmart.com/files/23/Amazon-Logo-White-PNG-Image.png"
                         alt="Amazon"
@@ -257,10 +377,7 @@ const ProductPage = () => {
 
           <ProductAccordionSection items={buildAccordionItems(product)} />
           <TrustBadgesSection badges={TRUST_BADGES} />
-          <ReviewsSection
-            productHandle={product.handle}
-            seedReviews={seedReviewsByHandle[product.handle] || []}
-          />
+          <ReviewsSection productHandle={product.handle} seedReviews={reviews} />
         </div>
       </div>
 
