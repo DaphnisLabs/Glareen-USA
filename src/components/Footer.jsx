@@ -30,19 +30,15 @@ const Footer = () => {
           <FooterCol title="Information">
             <FooterLink to="/about-us">About Us</FooterLink>
             <FooterLink to="/bulk-enquiry">Bulk Order Enquiry</FooterLink>
-
             <FooterLink to="/distributor-enquiry">Distributor Enquiry</FooterLink>
             <FooterLink to="/export-enquiry">Export Enquiry</FooterLink>
             <FooterLink to="/international-enquiry">International Enquiry</FooterLink>
-
             <FooterLink to="/contact-us">Contact Us</FooterLink>
           </FooterCol>
 
           {/* Policies */}
           <FooterCol title="Policies">
-            <FooterExternalLink href="https://glareen.com/pages/contact">
-              Contact Information
-            </FooterExternalLink>
+            <FooterLink to="/contact-us">Contact Information</FooterLink>
             <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
             <FooterLink to="/refund-policy">Return & refund Policy</FooterLink>
             <FooterLink to="/shipping-policy">Shipping Policy</FooterLink>
