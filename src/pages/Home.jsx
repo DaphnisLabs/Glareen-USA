@@ -2,6 +2,7 @@ import HomeBanner from "../components/HomeBanner";
 import Collection from "../components/Collection";
 import ProductCard from "../components/ProductCard";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
+import { TRUST_BADGES } from "../constants/trustBadges";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import { trendingProducts } from "../constants";
 
@@ -46,21 +47,6 @@ const Home = () => {
       location: "Delhi",
       img: "https://glareen.com/cdn/shop/files/WhatsApp_Image_2025-04-01_at_9.37.26_PM_1.jpg?v=1743525745",
       stars: 5,
-    },
-  ];
-
-  const TRUST_BADGES = [
-    {
-      title: "Secure Checkout ✅",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Secure_Checkout.png?v=1742909754",
-    },
-    {
-      title: "Free Return If Damaged",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Free_Return_if_damaged.png?v=1742909753",
-    },
-    {
-      title: "Made In India",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Made_in_India.png?v=1742909754",
     },
   ];
 

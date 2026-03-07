@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { TRUST_BADGES } from "../constants/trustBadges";
+import { productDataMap } from "../constants";
 import {
   Star,
   Leaf,
@@ -13,24 +15,44 @@ import {
 import ProductAccordionSection from "../components/ProductAccordianSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import ReviewsSection from "../components/sections/ReviewsSection";
+import ProductCard from "../components/ProductCard";
 import { seedReviewsByHandle } from "../constants/reviewsSeed";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 
 const ProductPage = () => {
   const location = useLocation();
+  const { id } = useParams();
 
   const [product, setProduct] = useState(null);
+  const [isResolved, setIsResolved] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const touchStartX = useRef(null);
+  const relatedScrollRef = useRef(null);
+
+  const allProducts = useMemo(() => {
+    return Object.values(productDataMap).flat();
+  }, []);
 
   useEffect(() => {
     if (location.state) {
       setProduct(location.state);
       setActiveIndex(0);
-      console.log("Product received:", location.state);
+      setIsResolved(true);
+      return;
     }
-  }, [location.state]);
+
+    const fallbackProduct = allProducts.find((item) => item.handle === id);
+
+    if (fallbackProduct) {
+      setProduct(fallbackProduct);
+      setActiveIndex(0);
+    } else {
+      setProduct(null);
+    }
+
+    setIsResolved(true);
+  }, [location.state, id, allProducts]);
 
   const productType = useMemo(() => {
     const h = (product?.handle || "").toLowerCase();
@@ -64,7 +86,6 @@ const ProductPage = () => {
     ];
   }, [productType]);
 
-  // ✅ Reviews for this product (from your seeded map)
   const reviews = useMemo(() => {
     return seedReviewsByHandle[product?.handle] || [];
   }, [product?.handle]);
@@ -82,7 +103,15 @@ const ProductPage = () => {
     return total / reviewCount;
   }, [reviews, reviewCount]);
 
-  const filledStars = Math.round(avgRating); // 0..5
+  const filledStars = Math.round(avgRating);
+
+  const relatedProducts = useMemo(() => {
+    if (!product) return [];
+
+    return (productDataMap[productType] || []).filter(
+      (item) => item.handle !== product.handle
+    );
+  }, [product, productType]);
 
   const buildAccordionItems = (p) => {
     const acc = p?.accordion;
@@ -148,21 +177,6 @@ const ProductPage = () => {
     ];
   };
 
-  const TRUST_BADGES = [
-    {
-      title: "Secure Checkout ✅",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Secure_Checkout.png?v=1742909754",
-    },
-    {
-      title: "Free Return If Damaged",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Free_Return_if_damaged.png?v=1742909753",
-    },
-    {
-      title: "Made In India",
-      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Made_in_India.png?v=1742909754",
-    },
-  ];
-
   const images = product?.images || [];
   const activeImg = images[activeIndex] || "";
 
@@ -192,14 +206,53 @@ const ProductPage = () => {
     else goPrev();
   };
 
-  if (!product) return <div className="p-10">Loading...</div>;
+  const scrollRelatedLeft = () => {
+    if (!relatedScrollRef.current) return;
+    relatedScrollRef.current.scrollBy({
+      left: -320,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRelatedRight = () => {
+    if (!relatedScrollRef.current) return;
+    relatedScrollRef.current.scrollBy({
+      left: 320,
+      behavior: "smooth",
+    });
+  };
+
+  if (!isResolved) {
+    return <div className="p-10">Loading...</div>;
+  }
+
+  if (!product) {
+    return (
+      <div className="w-full bg-white">
+        <div className="mx-auto max-w-4xl px-4 md:px-10 py-20 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+            Product not found
+          </h1>
+          <p className="text-gray-600 text-base md:text-lg mb-8">
+            The product you are looking for does not exist or the link may be
+            incorrect.
+          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-xl bg-black text-white px-6 py-3 hover:bg-black/90 transition"
+          >
+            Go back to home
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-white">
       <div className="bg-linear-to-b from-emerald-50/60 via-white to-white">
         <div className="mx-auto max-w-7xl px-4 md:px-10 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            {/* LEFT */}
             <section className="animate-fadeInUp">
               <div className="w-full rounded-2xl bg-white p-4 md:p-6 shadow-sm border border-gray-100">
                 <div
@@ -263,7 +316,6 @@ const ProductPage = () => {
               </div>
             </section>
 
-            {/* RIGHT */}
             <section
               className="space-y-6 animate-fadeInUp"
               style={{ animationDelay: "80ms" }}
@@ -378,15 +430,74 @@ const ProductPage = () => {
           <ProductAccordionSection items={buildAccordionItems(product)} />
           <TrustBadgesSection badges={TRUST_BADGES} />
           <ReviewsSection productHandle={product.handle} seedReviews={reviews} />
+
+          {relatedProducts.length > 0 && (
+            <section className="pt-12 md:pt-16">
+              <h2 className="text-center text-3xl md:text-5xl font-medium text-black mb-10">
+                You May Also Like
+              </h2>
+
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={scrollRelatedLeft}
+                  aria-label="Scroll left"
+                  className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20
+                             h-12 w-12 rounded-full bg-white/90 hover:bg-white
+                             border border-gray-200 shadow-md items-center justify-center"
+                >
+                  <ChevronLeft className="h-6 w-6 text-gray-800" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={scrollRelatedRight}
+                  aria-label="Scroll right"
+                  className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20
+                             h-12 w-12 rounded-full bg-white/90 hover:bg-white
+                             border border-gray-200 shadow-md items-center justify-center"
+                >
+                  <ChevronRight className="h-6 w-6 text-gray-800" />
+                </button>
+
+                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-24 bg-gradient-to-r from-white to-transparent" />
+                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-24 bg-gradient-to-l from-white to-transparent" />
+
+                <div
+                  ref={relatedScrollRef}
+                  className="flex gap-6 overflow-x-auto scroll-smooth pb-4 px-2 md:px-12 scrollbar-hide"
+                >
+                  {relatedProducts.map((item, idx) => (
+                    <div
+                      key={item.id || item.handle || idx}
+                      className="min-w-[280px] max-w-[280px] shrink-0"
+                    >
+                      <ProductCard item={item} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       </div>
 
       <style>
         {`
           .animate-fadeInUp { animation: fadeInUp 520ms ease both; }
+
           @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+          }
+
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
           }
         `}
       </style>
