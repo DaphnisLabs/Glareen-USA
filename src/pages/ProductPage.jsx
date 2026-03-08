@@ -55,11 +55,14 @@ const ProductPage = () => {
   }, [location.state, id, allProducts]);
 
   const productType = useMemo(() => {
-    const h = (product?.handle || "").toLowerCase();
-    if (h.includes("dhoop-cones")) return "dhoop-cones";
-    if (h.includes("dhoop-sticks")) return "dhoop-sticks";
-    return "incense-sticks";
-  }, [product?.handle]);
+    if (!product) return "incense-sticks";
+
+    const matchedEntry = Object.entries(productDataMap).find(([,items]) => 
+      items.some((item) => item.handle === product.handle)
+    );
+
+    return matchedEntry ? matchedEntry[0] : "incense-sticks";
+  }, [product]);
 
   const HIGHLIGHTS = useMemo(() => {
     if (productType === "dhoop-sticks") {
