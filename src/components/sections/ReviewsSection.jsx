@@ -37,7 +37,6 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
   const [openForm, setOpenForm] = useState(false);
   const [userReviews, setUserReviews] = useState([]);
 
-  // form
   const [rating, setRating] = useState(5);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -60,9 +59,12 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
   }, [imagePreview]);
 
   const allReviews = useMemo(() => {
-    // latest first for user reviews
     return [...userReviews, ...seedReviews];
   }, [userReviews, seedReviews]);
+
+  const hasMockSeedReviews = useMemo(() => {
+    return seedReviews.some((r) => r._mock);
+  }, [seedReviews]);
 
   const stats = useMemo(() => {
     const count = allReviews.length;
@@ -71,7 +73,7 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
         ? 0
         : allReviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0) / count;
 
-    const buckets = [0, 0, 0, 0, 0]; // 1..5
+    const buckets = [0, 0, 0, 0, 0];
     allReviews.forEach((r) => {
       const rt = Math.min(5, Math.max(1, Number(r.rating) || 5));
       buckets[rt - 1] += 1;
@@ -97,14 +99,13 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
       email: email.trim(),
       date: new Date().toISOString().slice(0, 10),
       images: imagePreview ? [imagePreview] : [],
-      _localPreviewOnly: Boolean(imagePreview), // since file is local
+      _localPreviewOnly: Boolean(imagePreview),
     };
 
     const next = [newReview, ...userReviews];
     setUserReviews(next);
     setLocalReviews(productHandle, next);
 
-    // reset
     setRating(5);
     setTitle("");
     setBody("");
@@ -125,9 +126,9 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
         Customer Reviews
       </h2>
 
-      {/* Summary row */}
+      
+
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        {/* Left: avg */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <StarsRow rating={Math.round(stats.avg || 0)} />
           <p className="mt-2 text-lg text-gray-700">
@@ -136,7 +137,6 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
           <p className="text-gray-600">Based on {stats.count} reviews</p>
         </div>
 
-        {/* Middle: bars */}
         <div className="space-y-2">
           {[5, 4, 3, 2, 1].map((star) => {
             const count = stats.buckets[star - 1] || 0;
@@ -162,7 +162,6 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
           })}
         </div>
 
-        {/* Right: button */}
         <div className="flex justify-center lg:justify-end">
           <button
             onClick={() => setOpenForm((v) => !v)}
@@ -173,7 +172,6 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
         </div>
       </div>
 
-      {/* Write form */}
       {openForm && (
         <form
           onSubmit={onSubmit}
@@ -305,7 +303,6 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
         </form>
       )}
 
-      {/* Reviews list */}
       <div className="mt-10 border-t border-black/10 pt-8 max-w-5xl mx-auto">
         <div className="flex items-center justify-between px-2">
           <p className="text-[#E0B341] font-medium">Most Recent</p>
@@ -316,10 +313,7 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
             <p className="text-center text-gray-500">No reviews yet.</p>
           ) : (
             allReviews.map((r) => (
-              <div
-                key={r.id}
-                className="border-b border-black/10 pb-8"
-              >
+              <div key={r.id} className="border-b border-black/10 pb-8">
                 <StarsRow rating={Number(r.rating) || 5} />
 
                 <div className="mt-3 flex items-start justify-between gap-4">
@@ -330,9 +324,7 @@ export default function ReviewsSection({ productHandle, seedReviews = [] }) {
                     </p>
                   </div>
 
-                  <div className="text-sm text-gray-500">
-                    {r.date || ""}
-                  </div>
+                  <div className="text-sm text-gray-500">{r.date || ""}</div>
                 </div>
 
                 <p className="mt-3 text-gray-700 whitespace-pre-line">
