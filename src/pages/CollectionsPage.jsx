@@ -1,27 +1,39 @@
 import { useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import {
   collectionBannerImages,
   mobileollectionBannerImages,
   productDataMap,
 } from "../constants";
+import {
+  getVisibleCollectionEntries,
+  isArchivedCollection,
+} from "../constants/archive";
 
 const CollectionsPage = () => {
   const { id } = useParams();
 
-  const products = useMemo(() => productDataMap?.[id] || [], [id]);
+  const visibleProductDataMap = useMemo(
+    () => getVisibleCollectionEntries(productDataMap),
+    []
+  );
+
+  const products = useMemo(() => visibleProductDataMap?.[id] || [], [id, visibleProductDataMap]);
   const banner = collectionBannerImages?.[id];
   const mobileBanner = mobileollectionBannerImages?.[id];
 
   const isValidCollection = Object.prototype.hasOwnProperty.call(
-    productDataMap,
+    visibleProductDataMap,
     id
   );
 
+  if (isArchivedCollection(id)) {
+    return <Navigate to="/collections/incense-sticks" replace />;
+  }
+
   return (
     <div className="w-full overflow-x-hidden pb-14">
-      {/* ===== Banner ===== */}
       <div className="w-full">
         {mobileBanner && (
           <img
@@ -43,7 +55,6 @@ const CollectionsPage = () => {
         )}
       </div>
 
-      {/* ===== Products ===== */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
         {!isValidCollection ? (
           <div className="text-center py-16">
@@ -73,7 +84,6 @@ const CollectionsPage = () => {
               </div>
             ))}
           </div>
-
         )}
       </div>
     </div>

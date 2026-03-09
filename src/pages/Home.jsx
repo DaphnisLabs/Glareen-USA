@@ -4,7 +4,8 @@ import ProductCard from "../components/ProductCard";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import { TRUST_BADGES } from "../constants/trustBadges";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
-import { trendingProducts } from "../constants";
+import { productDataMap, trendingProducts } from "../constants";
+import { getVisibleCollectionEntries } from "../constants/archive";
 
 const Home = () => {
   const TESTIMONIALS = [
@@ -50,6 +51,22 @@ const Home = () => {
     },
   ];
 
+  const visibleProductDataMap = getVisibleCollectionEntries(productDataMap);
+
+  const visibleProductHandles = new Set(
+    Object.values(visibleProductDataMap)
+      .flat()
+      .map((item) => item.handle)
+  );
+
+  const visibleTrendingProducts = trendingProducts.filter((item) =>
+    visibleProductHandles.has(item.handle)
+  );
+
+  const visibleTestimonials = TESTIMONIALS.filter(
+    (item) => !item.text.toLowerCase().includes("dhoop")
+  );
+
   return (
     <>
       <HomeBanner />
@@ -77,14 +94,14 @@ const Home = () => {
 
         <div className="overflow-x-auto scrollbar-hide scroll-smooth touch-pan-x">
           <div className="flex gap-4 sm:gap-5 px-4 sm:px-6 md:px-10 py-2 w-max">
-            {trendingProducts.map((item) => (
+            {visibleTrendingProducts.map((item) => (
               <ProductCard key={item.id} item={item} isBestSeller={true} />
             ))}
           </div>
         </div>
       </section>
 
-      <TestimonialsSection testimonials={TESTIMONIALS} />
+      <TestimonialsSection testimonials={visibleTestimonials} />
       <TrustBadgesSection badges={TRUST_BADGES} />
     </>
   );

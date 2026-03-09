@@ -17,7 +17,11 @@ import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import ReviewsSection from "../components/sections/ReviewsSection";
 import ProductCard from "../components/ProductCard";
 import { seedReviewsByHandle } from "../constants/reviewsSeed";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, useParams, Link, Navigate } from "react-router-dom";
+import {
+  getVisibleCollectionEntries,
+  isArchivedCollection,
+} from "../constants/archive";
 
 const ProductPage = () => {
   const location = useLocation();
@@ -30,12 +34,40 @@ const ProductPage = () => {
   const touchStartX = useRef(null);
   const relatedScrollRef = useRef(null);
 
+  const visibleProductDataMap = useMemo(
+    () => getVisibleCollectionEntries(productDataMap),
+    []
+  );
+
   const allProducts = useMemo(() => {
-    return Object.values(productDataMap).flat();
-  }, []);
+    return Object.values(visibleProductDataMap).flat();
+  }, [visibleProductDataMap]);
+
+  const archivedProductRequested = useMemo(() => {
+    return Object.entries(productDataMap).some(
+      ([collectionKey, items]) =>
+        isArchivedCollection(collectionKey) &&
+        items.some((item) => item.handle === id)
+    );
+  }, [id]);
 
   useEffect(() => {
     if (location.state) {
+      const matchedEntryFromState = Object.entries(productDataMap).find(
+        ([, items]) => items.some((item) => item.handle === location.state.handle)
+      );
+
+      const stateCollectionKey = matchedEntryFromState
+        ? matchedEntryFromState[0]
+        : "";
+
+      if (stateCollectionKey && isArchivedCollection(stateCollectionKey)) {
+        setProduct(null);
+        setActiveIndex(0);
+        setIsResolved(true);
+        return;
+      }
+
       setProduct(location.state);
       setActiveIndex(0);
       setIsResolved(true);
@@ -57,11 +89,13 @@ const ProductPage = () => {
   const productType = useMemo(() => {
     if (!product) return "incense-sticks";
 
-    const matchedEntry = Object.entries(productDataMap).find(([,items]) => 
+    const matchedEntry = Object.entries(productDataMap).find(([, items]) =>
       items.some((item) => item.handle === product.handle)
     );
 
-    return matchedEntry ? matchedEntry[0] : "incense-sticks";
+    const matchedKey = matchedEntry ? matchedEntry[0] : "incense-sticks";
+
+    return isArchivedCollection(matchedKey) ? "incense-sticks" : matchedKey;
   }, [product]);
 
   const HIGHLIGHTS = useMemo(() => {
@@ -111,10 +145,10 @@ const ProductPage = () => {
   const relatedProducts = useMemo(() => {
     if (!product) return [];
 
-    return (productDataMap[productType] || []).filter(
+    return (visibleProductDataMap[productType] || []).filter(
       (item) => item.handle !== product.handle
     );
-  }, [product, productType]);
+  }, [product, productType, visibleProductDataMap]);
 
   const buildAccordionItems = (p) => {
     const acc = p?.accordion;
@@ -227,6 +261,10 @@ const ProductPage = () => {
 
   if (!isResolved) {
     return <div className="p-10">Loading...</div>;
+  }
+
+  if (!product && archivedProductRequested) {
+    return <Navigate to="/collections/incense-sticks" replace />;
   }
 
   if (!product) {

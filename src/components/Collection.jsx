@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { getVisibleItems } from "../constants/archive";
 
 const collections = [
   {
@@ -21,6 +22,8 @@ const collections = [
 const Collection = () => {
   const navigate = useNavigate();
 
+  const visibleCollections = getVisibleItems(collections, (item) => item.id);
+
   return (
     <section className="w-full bg-white py-10 mt-8">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -28,8 +31,14 @@ const Collection = () => {
           Collections
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {collections.map((col) => (
+        <div
+          className={
+            visibleCollections.length === 1
+              ? "grid grid-cols-1 gap-5 max-w-md mx-auto"
+              : "grid grid-cols-1 md:grid-cols-3 gap-5"
+          }
+        >
+          {visibleCollections.map((col) => (
             <button
               key={col.id}
               onClick={() => navigate(`/collections/${col.id}`)}
