@@ -9,3 +9,43 @@ html, body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.premium-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(60, 60, 60, 0.75) rgba(0, 0, 0, 0.06);
+}
+
+.premium-scrollbar::-webkit-scrollbar {
+  height: 10px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    rgba(45, 45, 45, 0.75),
+    rgba(90, 90, 90, 0.85)
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 30, 30, 0.9),
+    rgba(75, 75, 75, 0.95)
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.premium-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}

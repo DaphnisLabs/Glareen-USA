@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import HomeBanner from "../components/HomeBanner";
 import Collection from "../components/Collection";
 import ProductCard from "../components/ProductCard";
@@ -8,6 +10,10 @@ import { productDataMap, trendingProducts } from "../constants";
 import { getVisibleCollectionEntries } from "../constants/archive";
 
 const Home = () => {
+  const trendingScrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
   const TESTIMONIALS = [
     {
       text:
@@ -67,6 +73,50 @@ const Home = () => {
     (item) => !item.text.toLowerCase().includes("dhoop")
   );
 
+  const updateTrendingScrollState = () => {
+    const el = trendingScrollRef.current;
+    if (!el) return;
+
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft < maxScrollLeft - 2);
+  };
+
+  const scrollTrendingLeft = () => {
+    const el = trendingScrollRef.current;
+    if (!el) return;
+
+    el.scrollBy({
+      left: -380,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollTrendingRight = () => {
+    const el = trendingScrollRef.current;
+    if (!el) return;
+
+    el.scrollBy({
+      left: 380,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateTrendingScrollState();
+    }, 50);
+
+    const handleResize = () => updateTrendingScrollState();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [visibleTrendingProducts.length]);
+
   return (
     <>
       <HomeBanner />
@@ -92,11 +142,39 @@ const Home = () => {
           Top Trending Products
         </h1>
 
-        <div className="overflow-x-auto scrollbar-hide scroll-smooth touch-pan-x">
-          <div className="flex gap-4 sm:gap-5 px-4 sm:px-6 md:px-10 py-2 w-max">
-            {visibleTrendingProducts.map((item) => (
-              <ProductCard key={item.id} item={item} isBestSeller={true} />
-            ))}
+        <div className="relative">
+          {canScrollLeft && (
+            <button
+              type="button"
+              onClick={scrollTrendingLeft}
+              aria-label="Scroll left"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 h-11 w-11 rounded-full bg-white/95 border border-gray-200 shadow-md flex items-center justify-center hover:bg-white"
+            >
+              <ChevronLeft className="h-5 w-5 text-gray-800" />
+            </button>
+          )}
+
+          {canScrollRight && (
+            <button
+              type="button"
+              onClick={scrollTrendingRight}
+              aria-label="Scroll right"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 h-11 w-11 rounded-full bg-white/95 border border-gray-200 shadow-md flex items-center justify-center hover:bg-white"
+            >
+              <ChevronRight className="h-5 w-5 text-gray-800" />
+            </button>
+          )}
+
+          <div
+            ref={trendingScrollRef}
+            onScroll={updateTrendingScrollState}
+            className="overflow-x-auto scroll-smooth touch-pan-x px-4 sm:px-6 md:px-10 pb-3 premium-scrollbar"
+          >
+            <div className="flex gap-4 sm:gap-5 py-2 w-max">
+              {visibleTrendingProducts.map((item) => (
+                <ProductCard key={item.id} item={item} isBestSeller={true} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
