@@ -4,6 +4,7 @@ import HomeBanner from "../components/HomeBanner";
 import Collection from "../components/Collection";
 import HomePromoCarousel from "../components/HomePromoCarousel";
 import ProductCard from "../components/ProductCard";
+import ProductShowcase from "../components/ProductShowcase";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import { TRUST_BADGES } from "../constants/trustBadges";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
@@ -180,6 +181,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <ProductShowcase />
 
       <TestimonialsSection testimonials={visibleTestimonials} />
       <TrustBadgesSection badges={TRUST_BADGES} />
