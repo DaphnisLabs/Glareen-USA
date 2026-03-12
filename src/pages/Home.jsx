@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HomeBanner from "../components/HomeBanner";
 import Collection from "../components/Collection";
+import HomePromoCarousel from "../components/HomePromoCarousel";
 import ProductCard from "../components/ProductCard";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import { TRUST_BADGES } from "../constants/trustBadges";
@@ -136,6 +137,7 @@ const Home = () => {
       </section>
 
       <Collection />
+      <HomePromoCarousel />
 
       <section className="flex flex-col py-10">
         <h1 className="text-center text-[#343434] font-semibold text-3xl sm:text-5xl lg:text-6xl mb-6">
