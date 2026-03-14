@@ -38,7 +38,6 @@ const Navbar = () => {
             )}
 
             <Link to="/bulk-enquiry">Bulk Enquiry</Link>
-            <Link to="/contact-us">Contact Us</Link>
             <Link to="/about-us">About Us</Link>
           </div>
 
@@ -116,13 +115,6 @@ const Navbar = () => {
                 className="py-3 border-b border-black/10"
               >
                 Bulk Enquiry
-              </Link>
-              <Link
-                onClick={closeMenu}
-                to="/contact-us"
-                className="py-3 border-b border-black/10"
-              >
-                Contact Us
               </Link>
               <Link
                 onClick={closeMenu}

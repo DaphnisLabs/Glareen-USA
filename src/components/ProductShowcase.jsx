@@ -22,8 +22,6 @@ const showcaseItems = [
 
 const ProductShowcase = () => {
   const scrollRef = useRef(null);
-  const videoRefs = useRef({});
-  const [previewingId, setPreviewingId] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -57,53 +55,7 @@ const ProductShowcase = () => {
     });
   };
 
-  const stopAllPreviews = () => {
-    Object.values(videoRefs.current).forEach((video) => {
-      if (!video) return;
-      video.pause();
-      video.currentTime = 0;
-    });
-    setPreviewingId(null);
-  };
-
-  const handleMouseEnter = (id) => {
-    const canHover =
-      typeof window !== "undefined" &&
-      window.matchMedia("(hover: hover)").matches;
-
-    if (!canHover) return;
-
-    Object.entries(videoRefs.current).forEach(([key, video]) => {
-      if (!video) return;
-      if (key !== id) {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-
-    const currentVideo = videoRefs.current[id];
-    if (!currentVideo) return;
-
-    currentVideo.currentTime = 0;
-    const playPromise = currentVideo.play();
-    if (playPromise?.catch) {
-      playPromise.catch(() => {});
-    }
-
-    setPreviewingId(id);
-  };
-
-  const handleMouseLeave = (id) => {
-    const currentVideo = videoRefs.current[id];
-    if (!currentVideo) return;
-
-    currentVideo.pause();
-    currentVideo.currentTime = 0;
-    setPreviewingId((prev) => (prev === id ? null : prev));
-  };
-
   const openVideo = (item) => {
-    stopAllPreviews();
     setActiveVideo(item);
   };
 
@@ -145,12 +97,6 @@ const ProductShowcase = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeVideo]);
-
-  useEffect(() => {
-    return () => {
-      stopAllPreviews();
-    };
-  }, []);
 
   return (
     <>
@@ -195,52 +141,32 @@ const ProductShowcase = () => {
                   <button
                     key={item.id}
                     type="button"
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                    onMouseLeave={() => handleMouseLeave(item.id)}
                     onClick={() => openVideo(item)}
                     className="relative flex-shrink-0 w-[260px] sm:w-[290px] h-[460px] sm:h-[520px] overflow-hidden rounded-[24px] bg-black shadow-[0_14px_40px_rgba(0,0,0,0.14)]"
                   >
                     <video
-                      ref={(el) => {
-                        videoRefs.current[item.id] = el;
-                      }}
                       src={item.video}
                       muted
                       loop
+                      autoPlay
                       playsInline
                       preload="metadata"
-                      className={`absolute inset-0 h-full w-full object-cover pointer-events-none transition-opacity duration-300 ${
-                        previewingId === item.id ? "opacity-100" : "opacity-0"
-                      }`}
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
 
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-300 ${
-                        previewingId === item.id ? "bg-black/15" : "bg-black"
-                      }`}
-                    />
-
-                    <div className="absolute left-4 top-4 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white/85 backdrop-blur-sm">
+                    <div className="absolute left-4 top-4 rounded-full bg-black/45 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white/90 backdrop-blur-sm">
                       PREVIEW
                     </div>
 
-                    <div
-                      className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 ${
-                        previewingId === item.id
-                          ? "opacity-0 scale-95"
-                          : "opacity-100 scale-100"
-                      }`}
-                    >
-                      <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
+
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-black/35 backdrop-blur-sm">
                         <Play
                           className="h-8 w-8 text-white ml-1"
                           fill="currentColor"
                         />
                       </div>
-
-                      <p className="mt-5 text-xs font-semibold tracking-[0.24em] text-white/80 uppercase">
-                        Hover to preview
-                      </p>
                     </div>
 
                     <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-black/55 px-5 py-3 text-center backdrop-blur-sm">

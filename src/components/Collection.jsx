@@ -1,91 +1,131 @@
-const benefits = [
+const featurePoints = [
   {
-    title: "Calming Atmosphere",
+    id: "01",
+    title: "Creates a calming atmosphere",
     description:
-      "Creates a warm, peaceful and cozy environment that helps your home feel more relaxing and inviting.",
+      "A soft, comforting aroma that brings warmth to your room and makes everyday spaces feel more peaceful and inviting.",
   },
   {
-    title: "Perfect for Prayer & Meditation",
+    id: "02",
+    title: "Perfect for prayer & mindful rituals",
     description:
-      "A beautiful companion for pooja, meditation, yoga, and quiet self-care rituals throughout the day.",
+      "Designed to complement pooja, meditation, reflection, and quiet moments that deserve a more elevated ambience.",
   },
   {
-    title: "Mood Uplifting Aroma",
+    id: "03",
+    title: "Leaves a refined lingering fragrance",
     description:
-      "The gentle fragrance helps refresh the senses and brings a soothing touch to your everyday routine.",
+      "A graceful scent trail that feels premium, elegant, and memorable without overwhelming the space.",
   },
-  {
-    title: "Elegant Home Fragrance",
-    description:
-      "Adds a premium aromatic feel to bedrooms, living rooms, entryways, and sacred spaces.",
-  },
-  {
-    title: "Daily Ritual Essential",
-    description:
-      "An easy way to make mornings and evenings feel more intentional, comforting, and special.",
-  },
-  {
-    title: "Warm & Lasting Impression",
-    description:
-      "Leaves behind a soft, memorable fragrance that makes your space feel welcoming and serene.",
-  },
+];
+
+const ritualTags = [
+  "Home Fragrance",
+  "Prayer Ritual",
+  "Meditation",
+  "Everyday Luxury",
+  "Gifting",
 ];
 
 const Collection = () => {
   return (
-    <section className="w-full bg-white py-10 mt-8">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="relative overflow-hidden rounded-[28px] border border-[#ead7c3] bg-gradient-to-br from-[#fff7ef] via-[#f8ecdf] to-[#f2e0cf] px-6 py-10 sm:px-8 md:px-12 md:py-14 shadow-[0_18px_50px_rgba(88,52,24,0.10)]">
-          <div className="absolute -top-16 -left-16 h-40 w-40 rounded-full bg-[#f3c79b]/30 blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-48 w-48 rounded-full bg-[#d89d67]/20 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/30 blur-2xl" />
+    <section className="relative w-full overflow-hidden mt-10 bg-gradient-to-br from-[#fcf6f9] via-[#f9eef4] to-[#f5e7ee] border-y border-[#eadde4]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-16 left-0 h-72 w-72 rounded-full bg-[#b86b91]/10 blur-3xl" />
+        <div className="absolute top-1/3 -right-12 h-80 w-80 rounded-full bg-[#d7b067]/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-white/20 blur-3xl" />
+      </div>
 
-          <div className="relative">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center rounded-full border border-[#d9b89a] bg-white/70 px-4 py-1 text-xs sm:text-sm font-medium tracking-[0.18em] text-[#8f623f] uppercase">
-                Warmth • Peace • Fragrance
-              </span>
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-14 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <span className="inline-flex w-fit items-center rounded-full border border-[#d8b46e] bg-white/75 px-4 py-1.5 text-[11px] sm:text-xs font-medium tracking-[0.22em] text-[#9a6d1f] uppercase backdrop-blur-sm">
+              Warmth • Peace • Fragrance
+            </span>
 
-              <h1 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-semibold text-[#3f2a1d]">
-                Incense Sticks Benefits
-              </h1>
+            <h1 className="mt-5 max-w-2xl text-3xl sm:text-5xl lg:text-[64px] lg:leading-[1.02] font-semibold tracking-[-0.04em] text-[#4f203f]">
+              Bring warmth, calm and elegance into your space
+            </h1>
 
-              <p className="mt-4 text-sm sm:text-base md:text-lg leading-7 text-[#6b4a34]">
-                Bring home a comforting aroma that turns everyday moments into
-                calming rituals. Designed to create a soothing ambience, incense
-                sticks add warmth, elegance, and peace to your space.
-              </p>
-            </div>
+            <p className="mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-8 text-[#6f5965]">
+              More than fragrance, incense sticks create a mood. They turn
+              ordinary moments into soothing rituals and give your home a
+              refined sensory presence that feels both comforting and premium.
+            </p>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {benefits.map((item) => (
+            <div className="mt-10 max-w-2xl border-t border-[#e5d9df]">
+              {featurePoints.map((point) => (
                 <div
-                  key={item.title}
-                  className="group rounded-2xl border border-[#ead6c3] bg-white/75 p-5 sm:p-6 backdrop-blur-sm shadow-[0_10px_30px_rgba(88,52,24,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(88,52,24,0.12)]"
+                  key={point.id}
+                  className="grid grid-cols-[46px_1fr] sm:grid-cols-[56px_1fr] gap-4 py-6 border-b border-[#ebe1e6]"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#f2cfac] to-[#e7b685] text-lg shadow-sm">
-                      ✨
-                    </div>
-                    <h2 className="text-lg sm:text-xl font-semibold text-[#432b1e]">
-                      {item.title}
-                    </h2>
+                  <div className="pt-1 text-xs sm:text-sm font-medium tracking-[0.18em] text-[#b17b95]">
+                    {point.id}
                   </div>
 
-                  <p className="mt-4 text-sm sm:text-base leading-7 text-[#6c4b37]">
-                    {item.description}
-                  </p>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-semibold text-[#4d233d]">
+                      {point.title}
+                    </h2>
+                    <p className="mt-2 text-sm sm:text-base leading-7 text-[#6e5864]">
+                      {point.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 rounded-2xl border border-[#e5cfbb] bg-white/60 px-5 py-4 text-center text-sm sm:text-base text-[#6b4a34] shadow-sm">
-              Ideal for <span className="font-semibold text-[#4a2f20]">prayer</span>,
-              <span className="font-semibold text-[#4a2f20]"> meditation</span>,
-              <span className="font-semibold text-[#4a2f20]"> relaxation</span>,
-              <span className="font-semibold text-[#4a2f20]"> gifting</span>, and
-              everyday home fragrance.
+            <div className="mt-8 flex flex-wrap gap-3 max-w-2xl">
+              {ritualTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-[#e5d8df] bg-white/85 px-4 py-2 text-xs sm:text-sm tracking-[0.08em] text-[#6f5665] shadow-sm"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
+          </div>
+
+          <div className="flex items-center justify-center lg:justify-end">
+            <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
+              <div className="absolute -inset-5 rounded-[36px] bg-gradient-to-br from-[#f7eaf1] via-[#fdf7fa] to-[#f1e1ea] shadow-[0_24px_70px_rgba(87,31,67,0.10)]" />
+
+              <div className="relative overflow-hidden rounded-[30px] bg-[#f4e9ef] shadow-[0_20px_60px_rgba(87,31,67,0.14)]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2f1325]/28 via-transparent to-transparent z-10" />
+
+                <img
+                  src="https://glareen.com/cdn/shop/files/Group_740.png?v=1744018804"
+                  alt="Glareen incense sticks"
+                  className="aspect-[4/5] w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <div className="absolute left-5 top-5 z-20 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-[11px] font-medium tracking-[0.24em] text-white uppercase backdrop-blur-sm">
+                  A Daily Fragrance Ritual
+                </div>
+
+                <div className="absolute left-5 right-5 bottom-5 z-20 rounded-[24px] border border-white/15 bg-[#2f1325]/50 p-5 backdrop-blur-sm">
+                  <p className="text-sm sm:text-base leading-7 text-white/90">
+                    Crafted to make everyday spaces feel calmer, warmer, and
+                    more refined from the very first light.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-[#e8dde3] pt-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[11px] sm:text-xs tracking-[0.24em] text-[#7b6270] uppercase">
+            <span>Home Fragrance</span>
+            <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-[#c7a5b7]" />
+            <span>Peaceful Rituals</span>
+            <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-[#c7a5b7]" />
+            <span>Mindful Living</span>
+            <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-[#c7a5b7]" />
+            <span>Elegant Gifting</span>
           </div>
         </div>
       </div>
