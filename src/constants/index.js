@@ -783,65 +783,6 @@ export const productDataMap = {
         ],
       },
     },
-
-    {
-      id: 7432902606917,
-      title: "Fantasy Tuberose Agarbatti Incense Sticks",
-      handle: "fantasy-tuberose-rajnigandha-incense-sticks-50-pack",
-      vendor: "Glareen",
-      price: 14.99,
-      compareAtPrice: 17.99,
-      available: true,
-      amazonUrl:
-        "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
-      images: [
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_3a4c7af0-6dda-4189-a8f8-4b54fd779c21.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_926019cc-a84c-4d97-88c8-6b097aeb84f9.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_cb4ee46a-49dc-42b7-988d-3cf2e3fb04f6.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_76d250a0-6b43-4aaf-b90a-6f567bdc6a39.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_80ef4788-f77c-4974-89e9-0898610d4bee.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_81597d92-644f-466e-8986-56ccb7346baa.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_1efaffc9-ad4b-4dfa-8d21-5297382468a2.jpg?v=1735154260",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_efee59bb-acd7-494a-be7d-13407dfe1473.jpg?v=1735154260",
-      ],
-      accordion: {
-        keyBenefits: [
-          "Tuberose-style floral aroma—rich, elegant, and soothing.",
-          "Ideal for mood-setting, relaxation, and self-care routines.",
-          "Consistent burn designed for lasting fragrance.",
-          "Great for home ambience, prayer rooms, and evening rituals.",
-          "Giftable pack for floral fragrance lovers.",
-        ],
-        howToUse: [
-          "Light the tip until it glows.",
-          "Blow out the flame.",
-          "Place in a heatproof holder.",
-          "Allow the smoke to spread naturally.",
-        ],
-        faqs: [
-          {
-            q: "How long does it burn?",
-            a: "Typically around 30–60 minutes per stick.",
-          },
-          {
-            q: "Can it be used indoors?",
-            a: "Yes—use with ventilation like any incense product.",
-          },
-          {
-            q: "Is it safe for daily use?",
-            a: "Yes—use a holder and keep away from flammables.",
-          },
-        ],
-        otherInformation:
-          "Fantasy Tuberose incense is designed for a rich floral ambience with a smooth burn. A great choice for evening routines, relaxation, and uplifting your space with a premium floral scent.",
-        allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, aromatic oils",
-          "Natural Binders: Traditional natural binders",
-        ],
-      },
-    },
-
     {
       id: 7432903196741,
       title: "French Lavender Agarbatti Incense Sticks",
@@ -1065,6 +1006,63 @@ export const productDataMap = {
         ],
         otherInformation:
           "Royal Oudh incense is designed for a richer, more luxurious ambience—ideal for evenings, gatherings, and premium home fragrance routines.",
+        allIngredients: [
+          "Herbs & Woods: Sandalwood, cedar, tulsi",
+          "Resins & Oils: Frankincense, myrrh, aromatic oils",
+          "Natural Binders: Traditional natural binders",
+        ],
+      },
+    },
+    {
+      id: 7432902606917,
+      title: "Fantasy Tuberose Agarbatti Incense Sticks",
+      handle: "fantasy-tuberose-rajnigandha-incense-sticks-50-pack",
+      vendor: "Glareen",
+      price: 14.99,
+      compareAtPrice: 17.99,
+      available: true,
+      amazonUrl:
+        "https://www.amazon.com/French-Lavender-Bliss-Exquisite-Agarbatti/dp/B0D3XRVC3F",
+      images: [
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_3a4c7af0-6dda-4189-a8f8-4b54fd779c21.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_926019cc-a84c-4d97-88c8-6b097aeb84f9.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_cb4ee46a-49dc-42b7-988d-3cf2e3fb04f6.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_76d250a0-6b43-4aaf-b90a-6f567bdc6a39.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_80ef4788-f77c-4974-89e9-0898610d4bee.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_81597d92-644f-466e-8986-56ccb7346baa.jpg?v=1735154262",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_1efaffc9-ad4b-4dfa-8d21-5297382468a2.jpg?v=1735154260",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_efee59bb-acd7-494a-be7d-13407dfe1473.jpg?v=1735154260",
+      ],
+      accordion: {
+        keyBenefits: [
+          "Tuberose-style floral aroma—rich, elegant, and soothing.",
+          "Ideal for mood-setting, relaxation, and self-care routines.",
+          "Consistent burn designed for lasting fragrance.",
+          "Great for home ambience, prayer rooms, and evening rituals.",
+          "Giftable pack for floral fragrance lovers.",
+        ],
+        howToUse: [
+          "Light the tip until it glows.",
+          "Blow out the flame.",
+          "Place in a heatproof holder.",
+          "Allow the smoke to spread naturally.",
+        ],
+        faqs: [
+          {
+            q: "How long does it burn?",
+            a: "Typically around 30–60 minutes per stick.",
+          },
+          {
+            q: "Can it be used indoors?",
+            a: "Yes—use with ventilation like any incense product.",
+          },
+          {
+            q: "Is it safe for daily use?",
+            a: "Yes—use a holder and keep away from flammables.",
+          },
+        ],
+        otherInformation:
+          "Fantasy Tuberose incense is designed for a rich floral ambience with a smooth burn. A great choice for evening routines, relaxation, and uplifting your space with a premium floral scent.",
         allIngredients: [
           "Herbs & Woods: Sandalwood, cedar, tulsi",
           "Resins & Oils: Frankincense, myrrh, aromatic oils",

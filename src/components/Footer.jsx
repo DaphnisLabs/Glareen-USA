@@ -19,20 +19,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
           {/* Collections */}
           <FooterCol title="Collections">
-            <FooterLink to="/collections/dhoop-sticks">Dhoop Sticks</FooterLink>
             <FooterLink to="/collections/incense-sticks">
               Incense Sticks
             </FooterLink>
-            <FooterLink to="/collections/dhoop-cones">Dhoop cones</FooterLink>
           </FooterCol>
 
           {/* Information */}
           <FooterCol title="Information">
             <FooterLink to="/about-us">About Us</FooterLink>
             <FooterLink to="/bulk-enquiry">Bulk Order Enquiry</FooterLink>
-            <FooterLink to="/distributor-enquiry">Distributor Enquiry</FooterLink>
+            <FooterLink to="/distributor-enquiry">
+              Distributor Enquiry
+            </FooterLink>
             <FooterLink to="/export-enquiry">Export Enquiry</FooterLink>
-            <FooterLink to="/international-enquiry">International Enquiry</FooterLink>
+            <FooterLink to="/international-enquiry">
+              International Enquiry
+            </FooterLink>
             <FooterLink to="/contact-us">Contact Us</FooterLink>
           </FooterCol>
 

@@ -15,7 +15,7 @@ const HomeBanner = () => {
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
-        className="h-75 w-full aspect-video sm:h-120" // adjust ratio to match your banner images
+        className="h-75 w-full aspect-video sm:h-150" // adjust ratio to match your banner images
       >
         {bannerImages.map((src, idx) => (
           <SwiperSlide key={src}>
