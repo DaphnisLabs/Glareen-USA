@@ -1,7 +1,16 @@
+// export const bannerImages = [
+//   "https://glareen.com/cdn/shop/files/6_29d81333-84f2-46cb-910b-602ec3dbf31a.jpg?v=1761679345&width=1400",
+//   "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=1600&auto=format&fit=crop",
+//   "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1600&auto=format&fit=crop",
+// ];
+
 export const bannerImages = [
-  "https://glareen.com/cdn/shop/files/6_29d81333-84f2-46cb-910b-602ec3dbf31a.jpg?v=1761679345&width=1400",
-  "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=1600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1600&auto=format&fit=crop",
+  "/banners/home/mystique_rose.png",
+  "/banners/home/fantasy_tuberose.png",
+  "/banners/home/exotic_jasmine.png",
+  "/banners/home/french_lavender.png",
+  "/banners/home/natural_sandal.png",
+  "/banners/home/royal_oudh.png",
 ];
 
 export const productDataMap = {
