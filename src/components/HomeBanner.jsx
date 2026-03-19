@@ -10,7 +10,7 @@ const HomeBanner = () => {
   return (
     <section className="relative">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         loop
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         pagination={{ clickable: true }}

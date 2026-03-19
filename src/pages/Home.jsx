@@ -184,7 +184,7 @@ const Home = () => {
 
       <ProductShowcase />
 
-      <TestimonialsSection testimonials={visibleTestimonials} />
+      <TestimonialsSection testimonials={TESTIMONIALS} />
       <TrustBadgesSection badges={TRUST_BADGES} />
     </>
   );

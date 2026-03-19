@@ -33,10 +33,6 @@ const TestimonialsSection = ({ testimonials }) => {
             <div className="mt-5 text-lg font-semibold text-[#0b1f1d]">
               {testimonials[active].name}
             </div>
-            <div className="mt-1 text-[#0b1f1d]/60">
-              {testimonials[active].location}
-            </div>
-
             <div className="mt-4 flex justify-center gap-2 text-2xl">
               {Array.from({ length: testimonials[active].stars }).map((_, i) => (
                 <span key={i} className="text-[#d7a928]">★</span>
