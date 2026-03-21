@@ -11,12 +11,16 @@ import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import { productDataMap, trendingProducts } from "../constants";
 import { getVisibleCollectionEntries } from "../constants/archive";
 import ComingSoon from "../components/ComingSoon";
+import ResponsibilitySection from "../components/ResponsibilitySection";
+import BoxContents from "../components/BoxContents";
 
 const Home = () => {
   const trendingScrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-
+  useEffect(() => {
+    document.title = "Glareen USA";
+  }, []);
   const TESTIMONIALS = [
     {
       text: "I’ve been burning Glareen Lavender Agarbatti Sticks every evening for weeks, and the calming floral scent never disappoints. Each stick offers a steady burn that fills my room with soothing aroma — perfect for unwinding after a busy day. Truly the best lavender incense I’ve tried!",
@@ -170,18 +174,19 @@ const Home = () => {
             className="overflow-x-auto scroll-smooth touch-pan-x px-4 sm:px-6 md:px-10 pb-3 premium-scrollbar"
           >
             <div className="flex gap-4 sm:gap-5 py-2 w-max">
-              {visibleTrendingProducts.map((item) => (
+              {productDataMap["incense-sticks"].map((item) => (
                 <ProductCard key={item.id} item={item} isBestSeller={true} />
               ))}
             </div>
           </div>
         </div>
       </section>
-
+      <ResponsibilitySection />
       <ProductShowcase />
+      <BoxContents />
       <ComingSoon />
       <TestimonialsSection testimonials={TESTIMONIALS} />
-      <TrustBadgesSection badges={TRUST_BADGES} />
+      {/* <TrustBadgesSection badges={TRUST_BADGES} /> */}
     </>
   );
 };

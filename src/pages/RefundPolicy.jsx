@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const RefundPolicy = () => {
+  useEffect(() => {
+    document.title = 'Refund Policy - Glareen USA'
+  }, [])
     return (
       <div className="w-full bg-white">
         <div className="mx-auto max-w-3xl px-4 py-14 md:py-20">

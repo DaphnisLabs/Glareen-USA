@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const PrivacyPolicy = () => {
+  useEffect(() => {
+      document.title = 'Privacy Policy - Glareen USA'
+    }, [])
     return (
       <div className="w-full bg-white">
         <div className="mx-auto max-w-3xl px-4 py-14 md:py-20">

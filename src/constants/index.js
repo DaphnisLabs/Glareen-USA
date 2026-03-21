@@ -2,15 +2,23 @@
 //   "https://glareen.com/cdn/shop/files/6_29d81333-84f2-46cb-910b-602ec3dbf31a.jpg?v=1761679345&width=1400",
 //   "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=1600&auto=format&fit=crop",
 //   "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1600&auto=format&fit=crop",
-// ];
+// // ];
 
+// export const bannerImages = [
+//   "/banners/home/mystique_rose.png",
+//   "/banners/home/fantasy_tuberose.png",
+//   "/banners/home/exotic_jasmine.png",
+//   "/banners/home/french_lavender.png",
+//   "/banners/home/natural_sandal.png",
+//   "/banners/home/royal_oudh.png",
+// ];
 export const bannerImages = [
-  "/banners/home/mystique_rose.png",
-  "/banners/home/fantasy_tuberose.png",
-  "/banners/home/exotic_jasmine.png",
-  "/banners/home/french_lavender.png",
-  "/banners/home/natural_sandal.png",
-  "/banners/home/royal_oudh.png",
+  "/banner1.png",
+  "/banner2.png",
+  "/banner3.png",
+  "/banner4.png",
+  "/banner5.png",
+  "/banner6.png",
 ];
 
 export const productDataMap = {
@@ -741,7 +749,6 @@ export const productDataMap = {
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_2376a293-0d32-4e40-8657-2939ed01e8de.jpg?v=1744453154",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_d702086c-1a1b-4a2f-8d9d-122fca40eb40.jpg?v=1744453154",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_1d28fbb5-b30c-40f2-943d-3838d9691f65.jpg?v=1744453112",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_1b794b90-826a-48d5-8d41-2ede38af7afb.jpg?v=1744453112",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_9b23df04-2100-4db4-924c-89024ae00119.jpg?v=1744453112",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_1f0d02d2-b2c8-4c15-8840-05b17ee3801d.jpg?v=1735154245",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_9fc6bdc2-5a82-4725-9b88-c421c782742c.jpg?v=1735128121",
@@ -796,8 +803,7 @@ export const productDataMap = {
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_05b824f2-1078-4270-b4fa-220ba0ea2cf8.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_457b87f3-d84d-408f-ac42-e7130f7639f1.jpg?v=1735154041",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_aa695dd3-fb21-41b4-b11c-d4178c57d8d9.jpg?v=1735154041",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_26ea13ce-e711-4bfb-820b-34f191e4f632.jpg?v=1735154041",
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_aa695dd3-fb21-41b4-b11c-d4178c57d8d9.jpg?v=1735154041",        
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_72218298-f8fd-432d-9eaa-e0faba983ddd.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_6813f3d4-88d6-4445-9cd2-c9543da09791.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_e1081048-a215-4cef-b483-99c4273ab9bc.jpg?v=1728160948",
@@ -854,7 +860,6 @@ export const productDataMap = {
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8.jpg?v=1735154105",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1.jpg?v=1735154105",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2.jpg?v=1728160422",
@@ -970,7 +975,6 @@ export const productDataMap = {
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_5c5025a1-ac3b-4ee1-9507-b9fcdd0a433a.jpg?v=1744453169",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_ecaad99f-3964-4935-928b-c48b037f5b02.jpg?v=1744453169",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_f7ff479d-89ff-47f5-b2fb-5369b71f9fa6.jpg?v=1735154131",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_af137423-75d2-4077-a7ad-4a46b8d7902c.jpg?v=1735154131",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_7d3daf19-9590-4dfc-8617-519ef8c5af53.jpg?v=1735154131",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_2d0a235c-ce75-4dfa-968b-f017e4d4e46f.jpg?v=1735154131",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_d5a2d6a1-faac-41f6-9792-6604d55edac0.jpg?v=1728161234",
@@ -1027,7 +1031,6 @@ export const productDataMap = {
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_3a4c7af0-6dda-4189-a8f8-4b54fd779c21.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_926019cc-a84c-4d97-88c8-6b097aeb84f9.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_cb4ee46a-49dc-42b7-988d-3cf2e3fb04f6.jpg?v=1735154262",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_76d250a0-6b43-4aaf-b90a-6f567bdc6a39.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_80ef4788-f77c-4974-89e9-0898610d4bee.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_81597d92-644f-466e-8986-56ccb7346baa.jpg?v=1735154262",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_1efaffc9-ad4b-4dfa-8d21-5297382468a2.jpg?v=1735154260",
@@ -1279,7 +1282,6 @@ export const trendingProducts = [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_05b824f2-1078-4270-b4fa-220ba0ea2cf8.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_457b87f3-d84d-408f-ac42-e7130f7639f1.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_aa695dd3-fb21-41b4-b11c-d4178c57d8d9.jpg?v=1735154041",
-      "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_26ea13ce-e711-4bfb-820b-34f191e4f632.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_72218298-f8fd-432d-9eaa-e0faba983ddd.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_6813f3d4-88d6-4445-9cd2-c9543da09791.jpg?v=1735154041",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_e1081048-a215-4cef-b483-99c4273ab9bc.jpg?v=1728160948",
@@ -1336,7 +1338,6 @@ export const trendingProducts = [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8.jpg?v=1735154105",
-      "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1.jpg?v=1735154105",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2.jpg?v=1728160422",
@@ -1451,7 +1452,6 @@ export const trendingProducts = [
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/3_5c5025a1-ac3b-4ee1-9507-b9fcdd0a433a.jpg?v=1744453169",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_ecaad99f-3964-4935-928b-c48b037f5b02.jpg?v=1744453169",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/8_f7ff479d-89ff-47f5-b2fb-5369b71f9fa6.jpg?v=1735154131",
-      "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_af137423-75d2-4077-a7ad-4a46b8d7902c.jpg?v=1735154131",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_7d3daf19-9590-4dfc-8617-519ef8c5af53.jpg?v=1735154131",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_2d0a235c-ce75-4dfa-968b-f017e4d4e46f.jpg?v=1735154131",
       "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_d5a2d6a1-faac-41f6-9792-6604d55edac0.jpg?v=1728161234",

@@ -12,7 +12,7 @@ const TestimonialsSection = ({ testimonials }) => {
   }, [testimonials.length]);
 
   return (
-    <section className="w-full bg-[#f6dfad]">
+    <section className="w-full bg-[#f6dfad] my-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
         <h2 className="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0b1f1d] tracking-tight">
           Testimonial

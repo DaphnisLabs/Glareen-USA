@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import EnquirySection from "../components/EnquirySection"
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
@@ -47,7 +48,9 @@ const BulkEnquiry = () => {
         stars: 5,
       },
   ];
-
+  useEffect(() => {
+    document.title = 'Bulk Enquiry - Glareen USA'
+  }, [])
   return (
     <>
     <div>

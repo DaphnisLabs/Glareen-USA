@@ -43,11 +43,10 @@ export default function ComingSoon() {
 
             <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-left">
               <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                Dhoop Cones
+                Incense Cones
               </h3>
               <p className="mt-2 text-white/80 text-sm">
-                Rich, intense aromas crafted for deeper, longer-lasting
-                ambiance.
+                Elegance Rooted in Wood and Bloom
               </p>
               <span className="mt-4 inline-block text-[11px] tracking-widest uppercase text-white/70">
                 Coming Soon
@@ -72,10 +71,10 @@ export default function ComingSoon() {
 
             <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-left">
               <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                Dhoop Sticks
+                Bambooless Incense Sticks
               </h3>
               <p className="mt-2 text-white/80 text-sm">
-                Subtle, soothing fragrances perfect for everyday calm and focus.
+                Seasons Whisper Through Every Fragrance
               </p>
               <span className="mt-4 inline-block text-[11px] tracking-widest uppercase text-white/70">
                 Coming Soon

@@ -22,6 +22,9 @@ const Footer = () => {
             <FooterLink to="/collections/incense-sticks">
               Incense Sticks
             </FooterLink>
+            <p></p>
+            <p>Incense cones (coming soon)</p>
+            <p>Bambooless incense sticks (coming soon)</p>
           </FooterCol>
 
           {/* Information */}
@@ -40,7 +43,6 @@ const Footer = () => {
 
           {/* Policies */}
           <FooterCol title="Policies">
-            <FooterLink to="/contact-us">Contact Information</FooterLink>
             <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
             <FooterLink to="/refund-policy">Return & refund Policy</FooterLink>
             <FooterLink to="/shipping-policy">Shipping Policy</FooterLink>

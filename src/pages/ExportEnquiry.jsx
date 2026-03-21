@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import EnquirySection from "../components/EnquirySection"
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import TrustBadgesSection from "../components/sections/TrustBadgesSection";
@@ -5,6 +6,9 @@ import { TRUST_BADGES } from "../constants/trustBadges";
 
 
 const ExportEnquiry = () => {
+  useEffect(() => {
+      document.title = 'Export Enquiry - Glareen USA'
+    }, [])
   const TESTIMONIALS = [
     {
       text:

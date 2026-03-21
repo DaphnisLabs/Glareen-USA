@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import {
@@ -10,22 +10,31 @@ import {
   getVisibleCollectionEntries,
   isArchivedCollection,
 } from "../constants/archive";
-
+const idToLabelMap = {
+  "incense-sticks": "Incense Sticks",
+  "dhoop-sticks": "Incense Sticks",
+};
 const CollectionsPage = () => {
   const { id } = useParams();
-
+  console.log(id);
+  useEffect(() => {
+    document.title = `${idToLabelMap[id]} - Glareen USA`;
+  }, []);
   const visibleProductDataMap = useMemo(
     () => getVisibleCollectionEntries(productDataMap),
-    []
+    [],
   );
 
-  const products = useMemo(() => visibleProductDataMap?.[id] || [], [id, visibleProductDataMap]);
+  const products = useMemo(
+    () => visibleProductDataMap?.[id] || [],
+    [id, visibleProductDataMap],
+  );
   const banner = collectionBannerImages?.[id];
   const mobileBanner = mobileollectionBannerImages?.[id];
 
   const isValidCollection = Object.prototype.hasOwnProperty.call(
     visibleProductDataMap,
-    id
+    id,
   );
 
   if (isArchivedCollection(id)) {

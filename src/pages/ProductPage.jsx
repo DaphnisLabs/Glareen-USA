@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { TRUST_BADGES } from "../constants/trustBadges";
 import { productDataMap } from "../constants";
 import {
   Star,
@@ -13,7 +12,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import ProductAccordionSection from "../components/ProductAccordianSection";
-import TrustBadgesSection from "../components/sections/TrustBadgesSection";
 import ReviewsSection from "../components/sections/ReviewsSection";
 import ProductCard from "../components/ProductCard";
 import { seedReviewsByHandle } from "../constants/reviewsSeed";
@@ -22,11 +20,16 @@ import {
   getVisibleCollectionEntries,
   isArchivedCollection,
 } from "../constants/archive";
-
+const normalizeId = (id) => {
+  const str = id.split('-').join(' ');
+  return str.toUpperCase();
+}
 const ProductPage = () => {
   const location = useLocation();
   const { id } = useParams();
-
+  useEffect(() => {
+    document.title = `GLAREEN ${normalizeId(id)}`
+  }, [])
   const [product, setProduct] = useState(null);
   const [isResolved, setIsResolved] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,7 +39,7 @@ const ProductPage = () => {
 
   const visibleProductDataMap = useMemo(
     () => getVisibleCollectionEntries(productDataMap),
-    []
+    [],
   );
 
   const allProducts = useMemo(() => {
@@ -47,14 +50,15 @@ const ProductPage = () => {
     return Object.entries(productDataMap).some(
       ([collectionKey, items]) =>
         isArchivedCollection(collectionKey) &&
-        items.some((item) => item.handle === id)
+        items.some((item) => item.handle === id),
     );
   }, [id]);
 
   useEffect(() => {
     if (location.state) {
       const matchedEntryFromState = Object.entries(productDataMap).find(
-        ([, items]) => items.some((item) => item.handle === location.state.handle)
+        ([, items]) =>
+          items.some((item) => item.handle === location.state.handle),
       );
 
       const stateCollectionKey = matchedEntryFromState
@@ -90,7 +94,7 @@ const ProductPage = () => {
     if (!product) return "incense-sticks";
 
     const matchedEntry = Object.entries(productDataMap).find(([, items]) =>
-      items.some((item) => item.handle === product.handle)
+      items.some((item) => item.handle === product.handle),
     );
 
     const matchedKey = matchedEntry ? matchedEntry[0] : "incense-sticks";
@@ -98,30 +102,24 @@ const ProductPage = () => {
     return isArchivedCollection(matchedKey) ? "incense-sticks" : matchedKey;
   }, [product]);
 
-  const HIGHLIGHTS = useMemo(() => {
-    if (productType === "dhoop-sticks") {
-      return [
-        { icon: Leaf, label: "Natural Ingredients" },
-        { icon: Clock3, label: "45+ Mins Of Burn Time" },
-        { icon: Sparkles, label: "Clean & Consistent Burn" },
-        { icon: CloudRain, label: "Weather Inspired" },
-      ];
-    }
-    if (productType === "dhoop-cones") {
-      return [
-        { icon: Leaf, label: "Natural Ingredients" },
-        { icon: Flame, label: "20–35 Mins Cone Burn" },
-        { icon: Sparkles, label: "Rich, Concentrated Aroma" },
-        { icon: Droplets, label: "Easy Ash Management" },
-      ];
-    }
-    return [
-      { icon: Leaf, label: "Natural Ingredients" },
-      { icon: Clock3, label: "30–60 Mins Burn Time" },
-      { icon: Sparkles, label: "Clean, Lasting Fragrance" },
-      { icon: Droplets, label: "Perfect For Daily Rituals" },
-    ];
-  }, [productType]);
+  const HIGHLIGHTS = [
+    {
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Pure_natural_6c131db2-95db-4fc9-b834-3a973441ed90.png?v=1742909457",
+      label: "Natural Ingredients",
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Hand_crafted.png?v=1742909457",
+      label: "Handcrafted",
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Less_smoke.png?v=1742909457",
+      label: "Less Smoke",
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Charcoal_free.png?v=1742909457",
+      label: "No Charcoal",
+    },
+  ];
 
   const reviews = useMemo(() => {
     return seedReviewsByHandle[product?.handle] || [];
@@ -146,7 +144,7 @@ const ProductPage = () => {
     if (!product) return [];
 
     return (visibleProductDataMap[productType] || []).filter(
-      (item) => item.handle !== product.handle
+      (item) => item.handle !== product.handle,
     );
   }, [product, productType, visibleProductDataMap]);
 
@@ -394,7 +392,7 @@ const ProductPage = () => {
                       ? `${Math.round(
                           ((product.compareAtPrice - product.price) /
                             product.compareAtPrice) *
-                            100
+                            100,
                         )}%`
                       : "0%"}
                   </span>
@@ -420,16 +418,15 @@ const ProductPage = () => {
 
                 <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                   {HIGHLIGHTS.map((h, idx) => {
-                    const Icon = h.icon;
                     return (
                       <div
                         key={idx}
                         className="group flex flex-col items-center text-center gap-2 rounded-xl p-3 hover:bg-emerald-50/60 transition"
                       >
-                        <div className="h-16 w-16 rounded-full bg-emerald-100 flex items-center justify-center shadow-sm border border-emerald-200 group-hover:scale-105 transition-transform">
-                          <Icon className="h-7 w-7 text-emerald-800" />
+                        <div className="h-18 w-18 rounded-full flex items-center justify-center shadow-sm border border-emerald-200 group-hover:scale-105 transition-transform">
+                          <img src={h.img}/>
                         </div>
-                        <p className="text-xs md:text-sm font-semibold text-gray-800 leading-snug">
+                        <p className="text-xs whitespace-nowrap text-gray-700 leading-snug">
                           {h.label}
                         </p>
                       </div>
@@ -445,7 +442,7 @@ const ProductPage = () => {
                       rel="noopener noreferrer"
                       className="w-full bg-black text-white py-4 rounded-xl uppercase text-sm hover:bg-black/90 transition flex items-center justify-center gap-3 shadow-sm"
                     >
-                      <span className="tracking-[0.25em] text-xl ">
+                      <span className="tracking-[0.25em] text-xl">
                         BUY NOW AT
                       </span>
                       <img
@@ -469,8 +466,10 @@ const ProductPage = () => {
           </div>
 
           <ProductAccordionSection items={buildAccordionItems(product)} />
-          <TrustBadgesSection badges={TRUST_BADGES} />
-          <ReviewsSection productHandle={product.handle} seedReviews={reviews} />
+          <ReviewsSection
+            productHandle={product.handle}
+            seedReviews={reviews}
+          />
 
           {relatedProducts.length > 0 && (
             <section className="pt-12 md:pt-16">
@@ -501,8 +500,8 @@ const ProductPage = () => {
                   <ChevronRight className="h-6 w-6 text-gray-800" />
                 </button>
 
-                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-24 bg-gradient-to-r from-white to-transparent" />
-                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-24 bg-gradient-to-l from-white to-transparent" />
+                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-24 bg-linear-to-r from-white to-transparent" />
+                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-24 bg-linear-to-l from-white to-transparent" />
 
                 <div
                   ref={relatedScrollRef}
@@ -511,7 +510,7 @@ const ProductPage = () => {
                   {relatedProducts.map((item, idx) => (
                     <div
                       key={item.id || item.handle || idx}
-                      className="min-w-[280px] max-w-[280px] shrink-0"
+                      className="min-w-70 max-w-70 shrink-0"
                     >
                       <ProductCard item={item} />
                     </div>

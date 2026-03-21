@@ -32,7 +32,7 @@ const ContactUsSection = () => {
             <button
               type="submit"
               className="inline-flex items-center justify-center min-w-35 px-10 py-4 text-sm sm:text-base font-medium tracking-wide
-                         bg-liner-to-r from-[#6f5b2a] via-[#b08a2a] to-[#d7a928]
+                         bg-linear-to-r from-[#6f5b2a] via-[#b08a2a] to-[#d7a928]
                          text-white shadow-[0_10px_30px_rgba(215,169,40,0.12)]
                          hover:brightness-110 active:brightness-95 transition"
             >

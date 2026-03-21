@@ -1,16 +1,10 @@
 @import "tailwindcss";
 
-html, body {
-    overflow-x: hidden;
-  }
-  
-
-
 ::-webkit-scrollbar {
     display: none;
 }
 
-.premium-scrollbar {
+/* .premium-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(60, 60, 60, 0.75) rgba(0, 0, 0, 0.06);
 }
@@ -48,4 +42,4 @@ html, body {
 
 .premium-scrollbar::-webkit-scrollbar-corner {
   background: transparent;
-}
+} */
