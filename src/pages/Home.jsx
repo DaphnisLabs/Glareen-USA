@@ -186,7 +186,7 @@ const Home = () => {
       <BoxContents />
       <ComingSoon />
       <TestimonialsSection testimonials={TESTIMONIALS} />
-      {/* <TrustBadgesSection badges={TRUST_BADGES} /> */}
+      <TrustBadgesSection badges={TRUST_BADGES} />
     </>
   );
 };

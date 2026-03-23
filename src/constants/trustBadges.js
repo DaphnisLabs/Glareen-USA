@@ -2,7 +2,7 @@ import naturallySourcedIcon from "../assets/icons/naturally-sourced-icon.png";
 
 export const TRUST_BADGES = [
   {
-    title: "Secure Checkout ✅",
+    title: "Secure Checkout",
     img: "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/Secure_Checkout.png?v=1742909754",
   },
   {

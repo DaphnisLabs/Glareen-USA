@@ -42,16 +42,8 @@ const ContactPage = () => {
                 </p>
 
                 <h2 className="text-3xl md:text-4xl font-semibold text-[#1f1f1f] mb-5">
-                  Glareen Pvt. Ltd.
+                  Glareen India Pvt. Ltd.
                 </h2>
-
-                <p className="text-[#5f5f5f] text-base md:text-lg leading-8">
-                  Basaveshwaranagar, Bangalore,
-                  <br />
-                  Bangalore North, Karnataka, India,
-                  <br />
-                  560079
-                </p>
               </div>
 
               {/* Right */}

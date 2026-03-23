@@ -13,7 +13,6 @@
 //   "/banners/home/royal_oudh.png",
 // ];
 export const bannerImages = [
-  "/banner1.png",
   "/banner2.png",
   "/banner3.png",
   "/banner4.png",
@@ -736,7 +735,7 @@ export const productDataMap = {
   "incense-sticks": [
     {
       id: 7432903688261,
-      title: "Exotic Jasmine Agarbatti Incense Sticks",
+      title: "Exotic Jasmine Incense Sticks (Pack of 50)",
       handle: "exotic-jasmine-dreams-incense-sticks-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -784,15 +783,16 @@ export const productDataMap = {
         otherInformation:
           "Bring the uplifting feel of jasmine gardens into your home. This jasmine-forward incense is crafted for a smooth, consistent burn and a calming atmosphere—perfect for meditation, relaxation, and everyday home fragrance.",
         allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, aromatic oils",
-          "Natural Binders: Traditional natural binders",
+          "Natural Flowers: Jasmine petals",
+          "Herbs & Woods: Sandalwood, cedarwood",
+          "Resins & Oils: Jasmine essential oil, natural resins",
+          "Natural Binders: Plant-based binders",
         ],
       },
     },
     {
       id: 7432903196741,
-      title: "French Lavender Agarbatti Incense Sticks",
+      title: "French Lavender Incense Sticks (Pack of 50)",
       handle: "french-lavender-bliss-incense-sticks-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -803,7 +803,7 @@ export const productDataMap = {
       images: [
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/2_05b824f2-1078-4270-b4fa-220ba0ea2cf8.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/7_457b87f3-d84d-408f-ac42-e7130f7639f1.jpg?v=1735154041",
-        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_aa695dd3-fb21-41b4-b11c-d4178c57d8d9.jpg?v=1735154041",        
+        "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/5_aa695dd3-fb21-41b4-b11c-d4178c57d8d9.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/6_72218298-f8fd-432d-9eaa-e0faba983ddd.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/1_6813f3d4-88d6-4445-9cd2-c9543da09791.jpg?v=1735154041",
         "https://cdn.shopify.com/s/files/1/0610/3072/7749/files/4_e1081048-a215-4cef-b483-99c4273ab9bc.jpg?v=1728160948",
@@ -839,16 +839,16 @@ export const productDataMap = {
         otherInformation:
           "French Lavender Bliss incense is crafted to create a calming, spa-like atmosphere. Perfect for winding down, reading, meditation, and setting a peaceful mood throughout your home.",
         allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, lavender-style oils",
-          "Natural Binders: Traditional natural binders",
+          "Natural Flowers: Lavender buds",
+          "Resins & Oils: Lavender essential oil, natural resins",
+          "Natural Binders: Plant-based binders",
         ],
       },
     },
 
     {
       id: 7432902443077,
-      title: "Mystique Rose Agarbatti Incense Sticks",
+      title: "Mystique Rose Incense Sticks (Pack of 50)",
       handle: "mystique-rose-incense-sticks-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -896,16 +896,16 @@ export const productDataMap = {
         otherInformation:
           "Mystique Rose incense is crafted for a rich, floral ambience that feels premium and comforting. A great pick for calm evenings, self-care routines, and creating a welcoming atmosphere at home.",
         allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, aromatic oils",
-          "Natural Binders: Traditional natural binders",
+          "Natural Flowers: Rose petals",
+          "Resins & Oils: Rose essential oil, natural resins",
+          "Natural Binders: Plant-based binders",
         ],
       },
     },
 
     {
       id: 7432903360581,
-      title: "Natural Sandal Agarbatti Incense Sticks",
+      title: "Natural Sandal Incense Sticks (Pack of 50)",
       handle: "natural-sandalwood-chandan-agarbatti-incense-stick-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -954,6 +954,7 @@ export const productDataMap = {
         otherInformation:
           "Natural Sandal incense is designed for a warm, grounding ambience that fits daily routines—meditation, quiet evenings, and home rituals. A timeless scent profile with a premium feel.",
         allIngredients: [
+          "Natural Ingredients: Sandalwood powder (Chandan)",
           "Herbs & Woods: Sandalwood, cedar, tulsi",
           "Resins & Oils: Frankincense, myrrh, aromatic oils",
           "Natural Binders: Traditional natural binders",
@@ -963,7 +964,7 @@ export const productDataMap = {
 
     {
       id: 7432903491653,
-      title: "Royal Oudh Agarbatti Incense Sticks",
+      title: "Royal Oudh Incense Sticks (Pack of 50)",
       handle: "royal-oudh-luxurious-oudh-agarbatti-incense-sticks-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -1011,15 +1012,16 @@ export const productDataMap = {
         otherInformation:
           "Royal Oudh incense is designed for a richer, more luxurious ambience—ideal for evenings, gatherings, and premium home fragrance routines.",
         allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, aromatic oils",
-          "Natural Binders: Traditional natural binders",
+          "Natural Ingredients: Oudh (agarwood) extracts",
+          "Herbs & Woods: Sandalwood, cedarwood",
+          "Resins & Oils: Oudh oil, frankincense",
+          "Natural Binders: Plant-based binders",
         ],
       },
     },
     {
       id: 7432902606917,
-      title: "Fantasy Tuberose Agarbatti Incense Sticks",
+      title: "Fantasy Tuberose Incense Sticks (Pack of 50)",
       handle: "fantasy-tuberose-rajnigandha-incense-sticks-50-pack",
       vendor: "Glareen",
       price: 14.99,
@@ -1067,9 +1069,9 @@ export const productDataMap = {
         otherInformation:
           "Fantasy Tuberose incense is designed for a rich floral ambience with a smooth burn. A great choice for evening routines, relaxation, and uplifting your space with a premium floral scent.",
         allIngredients: [
-          "Herbs & Woods: Sandalwood, cedar, tulsi",
-          "Resins & Oils: Frankincense, myrrh, aromatic oils",
-          "Natural Binders: Traditional natural binders",
+          "Natural Flowers: Tuberose (Rajnigandha) petals",
+          "Resins & Oils: Tuberose essential oil, natural resins",
+          "Natural Binders: Plant-based binders",
         ],
       },
     },
