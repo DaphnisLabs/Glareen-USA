@@ -13,6 +13,7 @@
 //   "/banners/home/royal_oudh.png",
 // ];
 export const bannerImages = [
+  "/banner1.png",
   "/banner2.png",
   "/banner3.png",
   "/banner4.png",

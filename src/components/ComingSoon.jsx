@@ -16,7 +16,6 @@ export default function ComingSoon() {
   const incenseStickImages = [
     "/ds1.jpg",
     "/ds2.jpg",
-    "/ds3.jpg",
     "/ds4.jpg",
     "/ds5.jpg",
     "/ds6.jpg",

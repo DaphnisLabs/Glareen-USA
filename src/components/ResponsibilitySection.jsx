@@ -3,33 +3,33 @@ import { useNavigate } from "react-router-dom";
 
 const features = [
   {
-    title: "Zero Black Smoke",
-    desc: "Breathe easy with our chemical-free incense, ensuring Zero Black smoke. Your well-being is our top priority!",
+    title: "Clean, Gentle Burn",
+    desc: "Our incense is thoughtfully crafted to burn cleanly, creating a soft and calming atmosphere without the harsh heaviness of conventional blends.",
     Icon: Flame,
     accent: "#F4A96A",
   },
   {
-    title: "Natural Ingredients",
-    desc: "From temple flowers, our incense blends nature's finest for your enjoyment and also protects India's rivers.",
+    title: "Botanical-Led Craft",
+    desc: "Made with nature-inspired ingredients, each blend celebrates floral richness and mindful craftsmanship in every fragrance experience.",
     Icon: Leaf,
     accent: "#8EC98A",
   },
   {
-    title: "Hand Rolled",
-    desc: "Light up our hand-rolled incense for a unique scent superhero experience, supporting artisan livelihoods along the way!",
+    title: "Rolled by Skilled Hands",
+    desc: "Every incense stick is shaped with care by artisans, bringing together tradition, precision, and a human touch in every piece.",
     Icon: Hand,
     accent: "#C4A882",
   },
   {
-    title: "Safe for Kids & Pets",
-    desc: "Elevate your ambiance worry-free with our kid- & pet-friendly incense, creating a pleasant vibe for all, including your furry friends!",
+    title: "Made for Peaceful Spaces",
+    desc: "Balanced and comforting, our incense is designed to make your home feel warm, welcoming, and mindful for everyone around you.",
     Icon: PawPrint,
     accent: "#A8C4C0",
   },
 ];
 
 export default function ResponsibilitySection() {
-    const nav = useNavigate()
+  const nav = useNavigate();
   return (
     <>
       <style>{`
@@ -237,7 +237,7 @@ export default function ResponsibilitySection() {
         .resp-hand {
           position: absolute;
           right: -12px;
-          bottom: -10px;
+          bottom: -5px;
           width: clamp(220px, 22vw, 380px);
           z-index: 20;
           pointer-events: none;
@@ -275,9 +275,9 @@ export default function ResponsibilitySection() {
 
               {/* Heading */}
               <h2 className="resp-heading">
-                We craft our Incense
+                More than Incense,
                 <br />
-                with <em>Responsibility</em>
+                a Ritual of <em>Care</em>
               </h2>
 
               <p className="resp-tagline">Ethical · Sacred · Humane</p>
@@ -310,7 +310,10 @@ export default function ResponsibilitySection() {
 
               {/* CTA */}
               <div className="resp-cta-wrap">
-                <button onClick={() => nav('/collections/incense-sticks')} className="resp-btn">
+                <button
+                  onClick={() => nav("/collections/incense-sticks")}
+                  className="resp-btn"
+                >
                   Shop Now
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
@@ -326,7 +329,7 @@ export default function ResponsibilitySection() {
             </div>
 
             {/* Hand image */}
-            <img src="/hand.png" alt="Incense Hand" className="resp-hand" />
+            <img src="/sticks.png" alt="Incense Hand" className="resp-hand" />
           </div>
         </div>
       </section>

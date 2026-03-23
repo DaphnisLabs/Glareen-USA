@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const ShippingPolicy = () => {
   useEffect(() => {
-    document.title = "Shipping Policy - Glareen USA";
+    document.title = "Shipping Policy - Glareen";
   }, []);
   return (
     <div className="w-full bg-white">
@@ -64,7 +64,7 @@ const ShippingPolicy = () => {
 
           <Section title="Lost or Stolen Packages">
             <p>
-              Glareen USA is not responsible for lost or stolen packages.
+              Glareen is not responsible for lost or stolen packages.
               Delivery issues must be resolved with Amazon or the carrier
               handling your shipment.
             </p>

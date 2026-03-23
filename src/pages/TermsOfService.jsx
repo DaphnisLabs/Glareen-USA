@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const TermsOfService = () => {
   useEffect(() => {
-    document.title = "Terms Of Service - Glareen USA";
+    document.title = "Terms Of Service - Glareen";
   }, []);
   return (
     <div className="w-full bg-white">
@@ -18,7 +18,7 @@ const TermsOfService = () => {
         <div className="mt-12 space-y-8 text-[15px] leading-7 text-gray-700">
           <Section title="Overview">
             <p>
-              This website is operated by <b>Glareen USA</b> (“Glareen”, “we”,
+              This website is operated by <b>Glareen</b> (“Glareen”, “we”,
               “us”, or “our”). By accessing or using this website, you agree to
               be bound by these Terms of Service.
             </p>
@@ -57,7 +57,7 @@ const TermsOfService = () => {
 
           <Section title="Limitation of Liability">
             <p>
-              To the maximum extent permitted by law, Glareen USA shall not be
+              To the maximum extent permitted by law, Glareen shall not be
               liable for any indirect, incidental, or consequential damages
               arising from your use of this website.
             </p>
@@ -65,7 +65,7 @@ const TermsOfService = () => {
 
           <Section title="Indemnification">
             <p>
-              You agree to indemnify and hold harmless Glareen USA from any
+              You agree to indemnify and hold harmless Glareen from any
               claims arising out of your use of the website or violation of
               these Terms.
             </p>

@@ -117,7 +117,7 @@ const AboutUs = () => {
               </h2>
 
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#1f2d2b]/80 max-w-xl">
-              Glareen is a brand that blends tradition, quality, and empowerment. We craft premium bamboo-free dhoop sticks, incense, and attars for a calming, enriching experience. With a commitment to eco-friendly practices and skilled artisans—many of whom are women gaining economic independence —we’re proud to serve B2B and B2C customers. Find us on Amazon and Flipkart. Let’s bring peace, purity, and purpose into every space.
+              Glareen is a brand that blends tradition, quality, and empowerment. We craft premium bamboo-free dhoop sticks, incense, and attars for a calming, enriching experience. With a commitment to eco-friendly practices and skilled artisans—many of whom are women gaining economic independence —we’re proud to serve B2B and B2C customers. Find us on major platforms. Let’s bring peace, purity, and purpose into every space.
               </p>
             </div>
           </div>

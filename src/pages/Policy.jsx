@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
-      document.title = 'Privacy Policy - Glareen USA'
+      document.title = 'Privacy Policy - Glareen'
     }, [])
     return (
       <div className="w-full bg-white">
@@ -20,10 +20,10 @@ const PrivacyPolicy = () => {
           {/* Body */}
           <div className="mt-12 space-y-8 text-[15px] leading-7 text-gray-700">
             <p>
-              This Privacy Policy describes how <b>Glareen USA</b> (“Glareen”, “we”,
+              This Privacy Policy describes how <b>Glareen</b> (“Glareen”, “we”,
               “us”, or “our”) collects, uses, and discloses your personal
               information when you visit or interact with{" "}
-              <b>glareenusa.com</b> (the “Site”), communicate with us, or use our
+              <b>glareen.com</b> (the “Site”), communicate with us, or use our
               services (collectively, the “Services”).
             </p>
   

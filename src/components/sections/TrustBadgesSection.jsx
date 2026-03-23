@@ -5,7 +5,7 @@ const TrustBadgesSection = ({ badges }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 items-start">
           {badges.map((b, idx) => (
             <div key={idx} className="flex flex-col items-center text-center">
-              <div className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] flex items-center justify-center">
+              <div className="w-45 h-45 md:w-50 md:h-50 flex items-center justify-center">
                 <img
                   src={b.img}
                   alt={b.title}
