@@ -147,10 +147,11 @@ export default function ResponsibilitySection() {
         }
 
         .resp-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px 56px;
-        }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 56px;
+  text-align: left; /* keep feature text readable */
+}
 
         .resp-feature {
           display: flex;
@@ -235,14 +236,15 @@ export default function ResponsibilitySection() {
 
         /* Hand image */
         .resp-hand {
-          position: absolute;
-          right: -12px;
-          bottom: -5px;
-          width: clamp(220px, 22vw, 380px);
-          z-index: 20;
-          pointer-events: none;
-          filter: drop-shadow(-8px 0 40px rgba(0,0,0,0.3));
-        }
+  position: absolute;
+  right: -12px;
+  top: 50%;                    /* center vertically */
+  transform: translateY(-30%); /* perfect centering */
+  width: clamp(220px, 22vw, 380px);
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(-8px 0 40px rgba(0,0,0,0.3));
+}
 
         @media (max-width: 900px) {
           .resp-card { padding: 48px 32px 48px 32px; min-height: auto; }
@@ -264,23 +266,21 @@ export default function ResponsibilitySection() {
             <div className="resp-arc" />
             <div className="resp-arc" />
 
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="resp-pill">
+                <span className="resp-pill-dot" />
+                Our Commitment
+              </div>
+            </div>
+
+            {/* Heading */}
+            <h2 className="resp-heading">
+              More than Incense,
+              <br />a Ritual of <em>Care</em>
+            </h2>
+            <p className="resp-tagline">Ethical · Sacred · Humane</p>
             <div className="resp-content">
               {/* Pill badge */}
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <div className="resp-pill">
-                  <span className="resp-pill-dot" />
-                  Our Commitment
-                </div>
-              </div>
-
-              {/* Heading */}
-              <h2 className="resp-heading">
-                More than Incense,
-                <br />
-                a Ritual of <em>Care</em>
-              </h2>
-
-              <p className="resp-tagline">Ethical · Sacred · Humane</p>
 
               <div className="resp-divider" />
 
