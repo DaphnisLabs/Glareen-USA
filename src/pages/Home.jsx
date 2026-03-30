@@ -19,7 +19,7 @@ const Home = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   useEffect(() => {
-    document.title = "Glareen USA";
+    document.title = "Glareen";
   }, []);
   const TESTIMONIALS = [
     {

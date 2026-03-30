@@ -56,7 +56,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-10 sm:mt-12 flex flex-col items-center text-center">
           <img
-            src="https://glareen.com/cdn/shop/files/small_-_transparent_170x_2x_6d027a98-ca48-4294-a695-10f907053051.png?v=1742877730&width=255"
+            src='/logo.avif'
             alt="logo"
             className="w-56 sm:w-64 md:w-72 lg:w-80 h-auto"
           />

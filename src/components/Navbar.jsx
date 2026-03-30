@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { isArchivedCollection } from "../constants/archive";
 
-const logo =
-  "https://glareen.com/cdn/shop/files/small_-_transparent_170x_2x_6d027a98-ca48-4294-a695-10f907053051.png?v=1742877730&width=255";
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -23,7 +20,7 @@ const Navbar = () => {
       <div className="py-4">
         <div className="flex items-center justify-between px-4 md:px-8">
           <Link to="/" onClick={closeMenu}>
-            <img src={logo} alt="glareen-logo" className="h-14 object-contain" />
+            <img src='/logo.avif' alt="glareen-logo" className="h-14 object-contain" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 text-lg">
