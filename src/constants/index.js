@@ -1,17 +1,3 @@
-// export const bannerImages = [
-//   "https://glareen.com/cdn/shop/files/6_29d81333-84f2-46cb-910b-602ec3dbf31a.jpg?v=1761679345&width=1400",
-//   "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=1600&auto=format&fit=crop",
-//   "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1600&auto=format&fit=crop",
-// // ];
-
-// export const bannerImages = [
-//   "/banners/home/mystique_rose.png",
-//   "/banners/home/fantasy_tuberose.png",
-//   "/banners/home/exotic_jasmine.png",
-//   "/banners/home/french_lavender.png",
-//   "/banners/home/natural_sandal.png",
-//   "/banners/home/royal_oudh.png",
-// ];
 export const bannerImages = [
   "/banner1.png",
   "/banner2.png",
@@ -1665,20 +1651,20 @@ export const trendingProducts = [
 
 export const collectionBannerImages = {
   "dhoop-sticks":
-    "https://glareen.com/cdn/shop/files/9_4617341f-5eed-4faa-becb-361ca48a567d.jpg?v=6708930817457289748",
+    "https://glareen.in/cdn/shop/files/9_4617341f-5eed-4faa-becb-361ca48a567d.jpg?v=6708930817457289748",
   "dhoop-cones":
-    "https://glareen.com/cdn/shop/files/10_64005200-394c-4693-8d25-7589cb429894.jpg?v=8456903312599037355",
+    "https://glareen.in/cdn/shop/files/10_64005200-394c-4693-8d25-7589cb429894.jpg?v=8456903312599037355",
   "incense-sticks":
-    "https://glareen.com/cdn/shop/files/8_1337a0b0-cd8c-4e5e-a1e4-4273ef04e966.jpg?v=2395446925357993699",
+    "https://glareen.in/cdn/shop/files/8_1337a0b0-cd8c-4e5e-a1e4-4273ef04e966.jpg?v=2395446925357993699",
 };
 
 export const mobileollectionBannerImages = {
   "dhoop-sticks":
-    "https://glareen.com/cdn/shop/files/10.jpg?v=2853743578324438689",
+    "https://glareen.in/cdn/shop/files/10.jpg?v=2853743578324438689",
   "dhoop-cones":
-    "https://glareen.com/cdn/shop/files/11_565a5c96-2271-4f96-a297-074ed9e3e931.jpg?v=17916416813026202835",
+    "https://glareen.in/cdn/shop/files/11_565a5c96-2271-4f96-a297-074ed9e3e931.jpg?v=17916416813026202835",
   "incense-sticks":
-    "https://glareen.com/cdn/shop/files/9.jpg?v=13755614307733663258",
+    "https://glareen.in/cdn/shop/files/9.jpg?v=13755614307733663258",
 };
 
 export const collectionSectionImages = [

@@ -7,9 +7,9 @@ const ContactPage = () => {
   }, []);
 
   const mainBanner =
-    "https://glareen.com/cdn/shop/files/Background_Contact.png?v=1744100653&width=1400";
+    "https://glareen.in/cdn/shop/files/Background_Contact.png?v=1744100653&width=1400";
   const mobileBanner =
-    "https://glareen.com/cdn/shop/files/Background_Phone_Contact.png?v=1744100707&width=750";
+    "https://glareen.in/cdn/shop/files/Background_Phone_Contact.png?v=1744100707&width=750";
 
   return (
     <div className="bg-linear-to-b from-[#fffaf5] via-white to-[#fffaf5]">
