@@ -6,7 +6,7 @@ import { TRUST_BADGES } from "../constants/trustBadges";
 
 const DistributorEnquiry = () => {
   useEffect(() => {
-    document.title = "Distributor Enquiry - Glareen USA";
+    document.title = "Distributor Enquiry - Glareen";
   }, []);
   const TESTIMONIALS = [
     {

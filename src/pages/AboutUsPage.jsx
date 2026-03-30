@@ -3,7 +3,7 @@ import AboutUs from "../components/AboutUs";
 
 const AboutUsPage = () => {
   useEffect(() => {
-    document.title = "About Us - Glareen USA";
+    document.title = "About Us - Glareen";
   }, []);
   return (
     <div className="w-full">

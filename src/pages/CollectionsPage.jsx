@@ -18,7 +18,7 @@ const CollectionsPage = () => {
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
-    document.title = `${idToLabelMap[id]} - Glareen USA`;
+    document.title = `${idToLabelMap[id]} - Glareen`;
   }, []);
   const visibleProductDataMap = useMemo(
     () => getVisibleCollectionEntries(productDataMap),

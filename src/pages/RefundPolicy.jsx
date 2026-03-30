@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const RefundPolicy = () => {
   useEffect(() => {
-    document.title = 'Refund Policy - Glareen USA'
+    document.title = 'Refund Policy - Glareen'
   }, [])
     return (
       <div className="w-full bg-white">

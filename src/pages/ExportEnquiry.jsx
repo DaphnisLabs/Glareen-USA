@@ -7,7 +7,7 @@ import { TRUST_BADGES } from "../constants/trustBadges";
 
 const ExportEnquiry = () => {
   useEffect(() => {
-      document.title = 'Export Enquiry - Glareen USA'
+      document.title = 'Export Enquiry - Glareen'
     }, [])
   const TESTIMONIALS = [
     {

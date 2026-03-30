@@ -49,7 +49,7 @@ const BulkEnquiry = () => {
       },
   ];
   useEffect(() => {
-    document.title = 'Bulk Enquiry - Glareen USA'
+    document.title = 'Bulk Enquiry - Glareen'
   }, [])
   return (
     <>

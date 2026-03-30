@@ -3,7 +3,7 @@ import ContactUsSection from "../components/ContactUsSection";
 
 const ContactPage = () => {
   useEffect(() => {
-    document.title = "Contact Us - Glareen USA";
+    document.title = "Contact Us - Glareen";
   }, []);
 
   const mainBanner =
