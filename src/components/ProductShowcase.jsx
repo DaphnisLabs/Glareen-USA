@@ -151,6 +151,7 @@ const ProductShowcase = () => {
                       autoPlay
                       playsInline
                       preload="metadata"
+                      fetchpriority="high"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
 
